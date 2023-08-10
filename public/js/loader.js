@@ -1,3 +1,20 @@
+var loader_node = document.createElement('div');
+loader_node.className = 'loader';
+loader_node.innerHTML = `
+        <div class="loading-logo-container">
+            <div class="lunas-container">
+                <div class="primary-luna">
+                    <div class="primary-luna-inside">
+                        <div class="graph-container"><canvas id="lineChart"></canvas></div>
+                    </div>
+                </div>
+                <div class="secondary-luna"></div>
+            </div>
+            <h1>GRAPHCAR</h1>
+        </div>
+`
+document.body.insertBefore(loader_node, document.body.firstChild);
+
 setTimeout(()=>{
     const ctx = document.getElementById('lineChart');
 
@@ -66,6 +83,6 @@ setTimeout(()=>{
 
     setTimeout(()=>{
         document.body.removeChild(document.querySelector('.loader'))
-    }, 5250)
+    }, 3000)
 
 }, 2000)

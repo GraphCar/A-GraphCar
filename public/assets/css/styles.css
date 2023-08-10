@@ -8,3 +8,92 @@ body, html {
     height: 100vh;
     margin: 0px;
 }
+
+nav{
+    position: fixed;
+    top: 0px;
+
+    width: 100vw;
+    height: 79px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: transparent;
+
+    font-family: 'GetVoIP Grotesque';
+}
+
+.nav-logo-container {
+    font-weight: 400;
+    font-size: 10px;
+
+    margin-left: 63px;
+}
+
+.button-navigation-container ul{
+    display: flex;
+    gap: 10px;
+
+    padding: 0px;
+
+    list-style-type: none;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+}
+
+nav li {
+    transition: 500ms;
+}
+
+nav li:hover {
+    transform: scale(1.08);
+}
+
+.button-user-container {
+    display: flex;
+    gap: 10px;
+
+    margin-right: 63px;
+}
+
+.collapse-menu {
+    display: none;
+}
+
+@media screen and (max-width: 720px) {
+    .collapse-menu {
+        display: block;
+    }
+
+    .button-navigation-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        position: absolute;
+        top: -100%;
+        
+        transition: 1s;
+
+        background-color: #fff;
+    }
+
+    .button-navigation-container ul{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .nav-logo-container {
+        margin-left: 10px;
+    }
+
+    .button-user-container {
+        margin-right: 10px;
+    }
+}
