@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "GetVoIP Grotesque";
+    src: url('../fonts/GetVoIP_Grotesque.otf'),
+    url('../fonts/GetVoIP_Grotesque.ttf') format('truetype');
+}
+
+body, html {
+    height: 100vh;
+    margin: 0px;
+}
