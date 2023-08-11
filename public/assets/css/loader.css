@@ -36,6 +36,8 @@
     font-family: 'GetVoIP Grotesque';
     font-size: 5vw;
 
+    color: #000 !important;
+
     position: relative;
 }
 

@@ -25,11 +25,14 @@ nav{
     font-family: 'GetVoIP Grotesque';
 }
 
-.nav-logo-container {
-    font-weight: 400;
-    font-size: 10px;
+.nav-logo-container h1 {
+    font-weight: 400 !important;
+    font-size: 12px !important;
 
+    color: black !important;
+    
     margin-left: 63px;
+    margin-bottom: 0px;
 }
 
 .button-navigation-container ul{
@@ -37,12 +40,14 @@ nav{
     gap: 10px;
 
     padding: 0px;
+    margin: 0px !important;
 
     list-style-type: none;
 }
 
 nav a {
-    color: black;
+    color: black !important;
+
     text-decoration: none;
 }
 
