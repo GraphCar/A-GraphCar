@@ -1,7 +1,9 @@
-var express = require("express");
-var cors = require("cors");
-var path = require("path");
-var PORTA = 3333;
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const IP = require('ip');
+const { spawn } = require("child_process");
+const PORTA = 3333;
 
 var app = express();
 
@@ -15,7 +17,16 @@ app.use(cors());
 
 app.use("/", indexRouter);
 
+const ipAddress = IP.address();
+
+const linkServer = `http://${ipAddress}:${PORTA}`;
+
 app.listen(PORTA, function () {
-    console.log(`Servidor Rodando Em: http://localhost:${PORTA} \n
-    Ambiente: ${process.env.AMBIENTE_PROCESSO}`);
+    console.log(`Servidor Rodando Em:  ${linkServer}`);
+});
+
+const curl = spawn("curl", [`qrenco.de/${linkServer}`]);
+
+curl.stdout.on("data", data => {
+    console.log(`qrcode:\n${data}`);
 });

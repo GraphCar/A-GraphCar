@@ -61,8 +61,18 @@ nav li:hover {
     margin-right: 63px;
 }
 
+.button-user-container img{
+    width: 31px;
+    height: 31px;
+}
+
 .collapse-menu {
     display: none;
+
+    background-color: transparent;
+    cursor: pointer;
+
+    border: none;
 }
 
 @media screen and (max-width: 720px) {
@@ -72,11 +82,16 @@ nav li:hover {
 
     .button-navigation-container {
         width: 100%;
+        height: 130px;
+
         display: flex;
         justify-content: center;
+        align-items: flex-end;
 
         position: absolute;
-        top: -100%;
+        top: -130px;
+
+        z-index: -1;
         
         transition: 1s;
 
@@ -85,7 +100,7 @@ nav li:hover {
 
     .button-navigation-container ul{
         flex-wrap: wrap;
-    }
+    }   
 }
 
 @media screen and (max-width: 360px) {
