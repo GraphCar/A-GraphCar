@@ -103,6 +103,8 @@ nav li:hover {
         transition: 1s;
 
         background-color: #fff;
+
+        padding-bottom: 20px;
     }
 
     .button-navigation-container ul{
