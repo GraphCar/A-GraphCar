@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 @font-face {
     font-family: "GetVoIP Grotesque";
     src: url('../fonts/GetVoIP_Grotesque.otf'),
@@ -12,6 +13,7 @@ body, html {
 nav{
     position: fixed;
     top: 0px;
+    z-index: 999;
 
     width: 100vw;
     height: 79px;
@@ -101,6 +103,8 @@ nav li:hover {
         transition: 1s;
 
         background-color: #fff;
+
+        padding-bottom: 20px;
     }
 
     .button-navigation-container ul{
