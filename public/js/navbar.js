@@ -34,3 +34,7 @@ collapseMenu.onclick = ()=>{
 
     enabledMenu = !enabledMenu;
 }
+
+document.onscroll = ()=>{
+    navbar.style.backgroundColor = scrollY > 10 ? '#FFF' : 'transparent'
+}

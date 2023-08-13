@@ -46,6 +46,8 @@ header{
 }
 
 .header-container span{
+    color: white;
+
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 45px;
@@ -71,6 +73,87 @@ header{
 
 .header-container button:hover {
     transform: scale(1.08);
+}
+
+.information-about{
+    padding: 90px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.information-about .text-info {
+    width: 50%;
+    min-width: 500px;
+
+    color: black !important;
+}
+
+.information-about .text-info h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    margin-bottom: 0px;
+    line-height: 40px;
+}
+
+.information-about .text-info span {
+    display: inline-block;
+
+    margin-left: 41px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 200;
+}
+
+.logo {
+    color: black;
+
+    font-family: "GetVoIP Grotesque";
+    font-size: 2.5vw;
+
+    text-align: center;
+
+    width: 50%;
+
+}
+
+@media screen and (max-width: 530px) {
+    .logo {
+        font-size: 3vw;
+    }
+
+    .container {
+        padding: 30px 10px;
+    }
+
+    .information-about{
+        gap: 30px;
+    }
+    
+    .information-about .text-info {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .information-about .text-info h1 {
+        font-size: 8.5vw;
+
+        white-space: normal;
+    }
+
+    .information-about .text-info span {
+        font-size: 5vw;
+    }
+
 }
 
 @media screen and (max-width: 720px) {
