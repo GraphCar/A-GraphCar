@@ -15,7 +15,7 @@ nav.innerHTML = `
 
         <div class="button-user-container">
             <a href="#"><img src="./assets/img/help-icon.png"></a>
-            <a href="#"><img src="./assets/img/Person-icon.png"></a>
+            <a href="cadastroMotorista.html"><img src="./assets/img/Person-icon.png"></a>
             <button id="collapseMenu" class="collapse-menu"><img src="./assets/img/Menu-icon.png"></button>
         </div>
 `;
