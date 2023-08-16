@@ -16,7 +16,7 @@
 
 .controle{
     width: 35%;
-    height: 100%;
+    height: calc(100%-70px);
 
     display: flex;
     justify-content: center;
