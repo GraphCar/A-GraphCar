@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphCar</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/cadastroMotorista.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="vidro">
+            <div class="inserir-dados">
+                <h3>Nome de usuário</h3>
+                <input type="text" autofocus>
+            </div>
+
+            <div class="inserir-dados">
+                <h3>CPF</h3>
+                <input type="text">
+            </div>
+            
+            <div class="inserir-dados">
+                <h3>Modelo do seu carro</h3>
+                <input type="text">
+            </div>
+
+            <div class="inserir-dados">
+                <h3>Placa do carro</h3>
+                <input type="text">
+            </div>
+
+            <div class="inserir-dados">
+                <h3>Email</h3>
+                <input type="text">
+            </div>
+
+            <div class="inserir-dados">
+                <h3>Senha</h3>
+                <input type="text">
+            </div>
+
+            <div class="inserir-dados">
+                <h3>Confirmar senha</h3>
+                <input type="text">
+            </div>
+
+            <button onclick="perfil()">Cadastrar</button>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="js/navbar.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/bootstrap.js"></script> -->
+
+<script>
+    function perfil() {
+        setTimeout(() => {
+                    window.location = "perfil.html";
+                    alert("Indo a tela de perfil")
+                }, "200")
+
+    }
+</script>

@@ -1,0 +1,131 @@
+.main {
+    position: absolute;
+    top: 0px;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-image: url(../img/perfil.jpg);
+    background-size: cover;
+
+}
+
+.controle{
+    width: 35%;
+    height: calc(100%-70px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: rgba(69, 69, 69, 0.40);
+    border: 3px solid rgba(69, 69, 69, 0.40);
+}
+
+.interacao{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.interacao button{
+    width: 70%;
+
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    background: rgba(69, 69, 69, 0.40);
+    backdrop-filter: blur(2px);
+
+    color: #FFF;
+    text-align: center;
+    white-space: nowrap;
+    font-family: GetVoIP Grotesque;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+
+    padding: 10px 20px;
+    margin: 2% 0;
+
+    transition: 500ms;
+}
+
+.interacao button:hover {
+    transform: scale(1.08);
+}
+
+.usuario {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.usuario img{
+    width: 200px;
+    height: auto;
+    
+    margin-bottom: 10px;
+}
+
+.usuario h2{
+    width: 100%;
+
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 30px;
+    color: #FFF;
+    font-weight: 300;
+
+}
+
+@media screen and (max-width: 530px) {
+    .logo {
+        font-size: 3vw;
+    }
+
+    .container {
+        padding: 30px 10px;
+    }
+
+    .information-about {
+        gap: 30px;
+    }
+
+    .information-about .text-info {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .information-about .text-info h1 {
+        font-size: 8.5vw;
+
+        white-space: normal;
+    }
+
+    .information-about .text-info span {
+        font-size: 5vw;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    .inserir-dados h1 {
+        font-size: 11vw;
+    }
+
+    .inserir-dados span {
+        font-size: 7vw;
+    }
+}
