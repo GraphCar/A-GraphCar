@@ -129,14 +129,15 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(25, 25, 25, 0.95);
+  /*background: rgba(25, 25, 25, 0.95);*/
   transition: all 0.5s;
   z-index: 997;
   height: 70px;
 }
 
 #header.fixed-top {
-  background: #191919;
+  /*background: #191919;*/
+  background-color: transparent;
 }
 
 #header .logo {
@@ -158,9 +159,9 @@ h6 {
   max-height: 40px;
 }
 
-.scrolled-offset {
+/*.scrolled-offset {
   margin-top: 70px;
-}
+}*/
 
 /*--------------------------------------------------------------
 # Navigation Menu
