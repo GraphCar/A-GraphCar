@@ -173,6 +173,16 @@ h6 {
   padding: 0;
 }
 
+.img-link {
+  padding: 20px 5px !important;
+}
+
+.img-link>img{
+  width: 28px;
+
+  filter: invert();
+}
+
 .navbar ul {
   margin: 0;
   padding: 0;
@@ -183,6 +193,10 @@ h6 {
 
 .navbar li {
   position: relative;
+}
+
+.navbar>ul>li:last-child{
+  margin-right: 20px;
 }
 
 .navbar>ul>li {
