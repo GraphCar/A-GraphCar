@@ -61,9 +61,13 @@
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
 
-  const chengeBgColorNavbar = ()=>{
-    navbar.style.backgroundColor = scrollY > 10 ? '#FFF' : 'transparent'
+  var navbar = select('#header')
+
+  const changeBgColorNavbar = ()=>{
+    navbar.style.backgroundColor = scrollY > 10 ? '#191919' : 'transparent'
   }
+
+  onscroll(document, changeBgColorNavbar)
 
   /**
    * Scrolls to an element with header offset
