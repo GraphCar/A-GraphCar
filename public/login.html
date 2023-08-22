@@ -22,7 +22,7 @@
             </div>
             
             <div class="login-info">
-                <span>Nome:</span> <input id="ipt_nome_usuario">
+                <span>Email:</span> <input id="ipt_email_usuario">
             </div>
             
             <div class="login-info">
@@ -47,8 +47,72 @@
 <script>
 
     function login(){
-        var nome = ipt_nome_usuario.value;
+        var email = ipt_email_usuario.value;
         var senha = ipt_senha_usuario.value;
+        var verificacao = true;
+
+        if(nome.length==0){
+            alert("Informe o seu nome.");
+            verificacao = false;
+
+        } else if(email.length==0){
+            alert("Informe o seu email.");
+            verificacao = false;
+
+        } else if(email.startsWith("@")){
+            alert("Verifique se você digitou algo antes do @");
+            verificacao = false;
+
+        } else if(email.endsWith("@outlook.com") || email.endsWith("hotmail.com") || email.endsWith("gmail.com")){
+            //Caso termine com qualquer uma das opções acima o sistema não fará nada.
+        } else {
+            alert("Verifique se você digitou seu email corretamente, aceitamos apenas outlook, hotmail e gmail.");
+            verificacao = false;
+        }
+
+        if(verificacao){
+
+            fetch("/usuario/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+            
+         }).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+
+                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+
+                    window.location = '/index';
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    alert(texto);
+                });
+            }
+
+         }).catch(function (erro) {
+            console.log(erro);
+         })
+
+        }
+
     }
 
 </script>
