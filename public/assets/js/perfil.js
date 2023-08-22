@@ -11,6 +11,7 @@ function mostrarControle() {
     if (!aparece) {
         controle.style = "width: 100%;";
         hamburguer.style = "width: 60%;";
+        hamburguer.innerHTML = '<img src="assets/img/user.png" onclick="mostrarControle()">';
         nome.style = "display: block;";
         interacao.style = "display: flex;";
         dadosGerais.style = "width: 0%;";

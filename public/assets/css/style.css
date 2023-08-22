@@ -159,6 +159,7 @@ h6 {
   max-height: 40px;
 }
 
+
 /*.scrolled-offset {
   margin-top: 70px;
 }*/
@@ -175,6 +176,7 @@ h6 {
 
 .img-link {
   padding: 20px 5px !important;
+
 }
 
 .img-link>img{
@@ -542,6 +544,8 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
+
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
@@ -569,11 +573,14 @@ section {
 /*--------------------------------------------------------------
 # Why Us
 --------------------------------------------------------------*/
+
 .why-us {
   padding-top: 10px;
 }
 
 .why-us .box {
+  min-height: 279px !important;
+  
   padding: 50px 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;
@@ -765,6 +772,10 @@ section {
 .precos {
   justify-content: center;
   gap: 20px;
+}
+
+.precos > div{
+  min-width: 457px;
 }
 
 .pricing .box {
