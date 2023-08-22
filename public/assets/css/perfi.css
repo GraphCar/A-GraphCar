@@ -18,7 +18,7 @@ body{
 }
 
 .controle{
-    width: 35%;
+    width: 30%;
     height: 100%;
 
     display: flex;
@@ -76,6 +76,8 @@ body{
 
     color: #a7a5a5;
     font-size: 20px;
+
+    transition: 500ms;
 }
 
 .interacao button:hover {
@@ -110,7 +112,44 @@ body{
 
 }
 
-@media screen and (max-width: 1160px) {
+#hamburguer{
+    display: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.dados{
+    width: 70%;
+    height: 100%;
+    
+    background-color: black;
+}
+
+#dCadastro{
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    background-color: blue;
+}
+
+#dCarro{
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    background-color: yellow;
+}
+
+#confgCarro{
+    width: 100%;
+    height: 100%;
+    
+    display: none;
+    background-color: green;
+}
+
+@media screen and (max-width: 1260px) {
     .interacao button {
         font-size: 15px;
         padding: 10px 5px;
@@ -118,6 +157,10 @@ body{
 
     .controle {
         width: 30%;
+    }
+
+    #hamburguer{
+        display: none;
     }
 }
 
@@ -130,9 +173,19 @@ body{
         display: none;
     }
 
-    .usuario img{
+    .usuario .foto{
         width: 60%;
-        margin: 40px 0;
+        display: none;
+    }
+
+    #hamburguer{
+        width: 100%;
+        padding: 25px 0 0 0;
+        display: block;
+    }
+
+    #hamburguer img{
+        width: 60%;
     }
 
     .controle {
@@ -140,6 +193,9 @@ body{
         align-items: start;
     }
     
+    .dados {
+        width: 90%;
+    }
 }
 /* 
 @media screen and (max-width: 530px) {

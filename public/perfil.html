@@ -12,24 +12,40 @@
 <body>
 
     <div class="main">
-        <div class="controle">
+        <div class="controle" id="controle">
             <div class="usuario">
-                <img src="assets/img/user.png" alt="foto-perfil">
-                <h2>Usuario(a)</h2>
+                <button id="hamburguer"><img src="assets/img/user.png" onclick="mostrarControle()"></button>
+                <img src="assets/img/user.png" class="foto">
+                <h2 id="nome">Usuario(a)</h2>
             </div>
-            <div class="interacao">
-                <button class="botao">Dados de cadastro</button>
-                <button class="botao">Dados do carro</button>
-                <button class="botao">Configurações do carro</button>
-                <button class="botao">Início</button>
-                <button class="sair">Sing-up</button>
+            <div class="interacao" id="interacao">
+                <button class="botao" onclick="dadosCadastro()">Dados de cadastro</button>
+                <button class="botao" onclick="dadosCarro()">Dados do carro</button>
+                <button class="botao" onclick="confCarro()">Configurações do carro</button>
+                <button class="botao" onclick="inicio()">Início</button>
+                <button class="sair" onclick="">Sing-up</button>
+            </div>
+        </div>
+        <div class="dados" id="dadosGerais">
+            <div id="dCadastro">
+
+            </div>
+
+            <div id="dCarro">
+
+            </div>
+
+            <div id="confgCarro">
+
             </div>
         </div>
     </div>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/perfil.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <!-- <script src="js/navbar.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
 <script src="js/bootstrap.js"></script> -->
+
