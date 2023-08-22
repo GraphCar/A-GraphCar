@@ -1,8 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-var usuarioController = require("../controllers/usuarioController");
+const usuarioController = require("../controllers/usuarioController");
 
+console.log("llllllllllllllllllll")
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

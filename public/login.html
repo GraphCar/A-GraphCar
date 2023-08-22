@@ -33,6 +33,10 @@
 
         </div>
 
+        <div class="alert-box" id="error_box" style="display: none;">
+            <p id="mensagem_erro"></p>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -49,34 +53,38 @@
     function login(){
         var email = ipt_email_usuario.value;
         var senha = ipt_senha_usuario.value;
+        mensagem_erro.innerHTML = ``;
         var verificacao = true;
 
-        if(nome.length==0){
-            alert("Informe o seu nome.");
-            verificacao = false;
-
-        } else if(email.length==0){
-            alert("Informe o seu email.");
+        if(email.length==0){
+            error_box.style.display="flex";
+            mensagem_erro.innerHTML+=`Erro: Informe o seu email!<br>`;
             verificacao = false;
 
         } else if(email.startsWith("@")){
-            alert("Verifique se você digitou algo antes do @");
+            error_box.style.display="flex";
+            mensagem_erro.innerHTML+=`Erro: Verifique se você digitou algo antes do @<br>`;
             verificacao = false;
 
-        } else if(email.endsWith("@outlook.com") || email.endsWith("hotmail.com") || email.endsWith("gmail.com")){
-            //Caso termine com qualquer uma das opções acima o sistema não fará nada.
-        } else {
-            alert("Verifique se você digitou seu email corretamente, aceitamos apenas outlook, hotmail e gmail.");
+        }
+
+        if(senha.length==0){
+            error_box.style.display="flex";
+            mensagem_erro.innerHTML+="Erro: Informe a sua senha!";
             verificacao = false;
+
         }
 
         if(verificacao){
 
-            fetch("/usuario/autenticar", {
+            console.log('Realizando o fetch("/Usuarios/autenticar") no login.html');
+
+            fetch("/Usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
+
             body: JSON.stringify({
                 emailServer: email,
                 senhaServer: senha
@@ -85,13 +93,14 @@
          }).then(function (resposta) {
 
             if (resposta.ok) {
-                console.log(resposta);
+
+                console.log('Fetch realizado com sucesso! Resposta: \n' + resposta);
 
                 resposta.json().then(json => {
                     console.log(json);
 
                     sessionStorage.EMAIL_USUARIO = json.emailUsuario;
-                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.SENHA_USUARIO = json.senhaServer;
 
                     window.location = '/index';
 
@@ -103,7 +112,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    alert(texto);
+                    alert("Houve um erro ao tentar realizar o login!");
                 });
             }
 
@@ -111,6 +120,10 @@
             console.log(erro);
          })
 
+        } else {
+            setTimeout(()=>{
+                error_box.style.display="none";
+            },5000);
         }
 
     }

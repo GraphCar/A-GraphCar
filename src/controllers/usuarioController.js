@@ -1,5 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 function entrar(req, res) {
     var email = req.body.emailServer;
@@ -52,4 +53,7 @@ function entrar(req, res) {
     }
 
 }
-    
+
+module.exports = {
+    entrar,
+}
