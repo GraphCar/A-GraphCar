@@ -886,6 +886,8 @@ section {
 # Team
 --------------------------------------------------------------*/
 .team .member {
+  width: 100%;
+
   text-align: center;
   margin-bottom: 20px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
@@ -894,9 +896,12 @@ section {
 }
 
 .team .member img {
-  width: 50%;
-  
-  max-width: 60%;
+  width: 200px;
+  height: 200px;
+
+  object-fit: cover;
+  object-position: center center;
+
   border-radius: 50%;
   margin: 0 0 30px 0;
 }
