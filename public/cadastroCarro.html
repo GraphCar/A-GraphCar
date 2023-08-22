@@ -1,42 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GraphCar</title>
-
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/loader.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/cadastroCarro.css">
+    <link href="toastr.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/public/assets/css/reset.css">
+    <link rel="stylesheet" href="../public/assets/css/cadastroCarro.css">
+    <title>Cadastro Carro</title>
 </head>
-
 <body>
-    <div class="main">
-        <div class="vidro">
-            <div class="inserir-dados">
-                <h3>Nome do Motorista</h3>
-                <input type="text" autofocus>
-            </div>
+    <header>
+        <a href="perfil.html">
+            <img src="/public/assets/img/graph.png" alt="Logo_GraphCar" srcset="" width="300px">
+        </a>
+    </header>
 
-            <div class="inserir-dados">
-                <h3>Modelo do Veículo</h3>
-                <input type="text">
-            </div>
-            
-            <div class="inserir-dados">
-                <h3>Versão do Software</h3>
-                <input type="text">
-            </div>
-
-            <button onclick="cadastrar()">Cadastrar</button>
-        </div>
-    </div>
-    
+    <div class="login-box">
+        <h3>Cadastro de Carro</h3>
+        <form>
+          <div class="user-box">
+            <input type="text" name="" required="" id="ipt_nome_piloto">
+            <label>Nome</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="" required="" id="ipt_modelo_carro">
+            <label>Modelo do Carro</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="" required="" id="ipt_placa_carro">
+            <label>Placa do Carro</label>
+          </div>
+          
+          
+          <a href="#" onclick="perfil()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Cadastrar
+          </a>
+        </form>
+      </div>
 </body>
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+    </style>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/navbar.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="assets/js/cadastroADM.js"></script>
+<script>
+    function perfil() {
+        setTimeout(() => {
+                    window.location = "perfil.html";
+                    alert("Indo a tela de perfil")
+                }, "200")
+
+    }
+</script>
