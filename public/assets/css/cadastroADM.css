@@ -1,6 +1,6 @@
 
 body {
-    height: 95vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,8 +9,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* filter: brightness(90%); */
-    /* filter: brightness(0.25) opacity(0.75); */
+    backdrop-filter: brightness(0.8);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -20,7 +19,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
+  
+  /* Css Formulário */
 
 .formulario {
     width: 50%;
@@ -29,7 +30,6 @@ header {
     border-radius: 10px;
     border: 1px solid #454545;
 }
-
 
   .login-box {
     top: 50%;
@@ -60,7 +60,7 @@ header {
     color: #fff;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
     outline: none;
     background: transparent;
   }
