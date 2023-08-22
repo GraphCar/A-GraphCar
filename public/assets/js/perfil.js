@@ -17,6 +17,7 @@ function mostrarControle() {
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
+        aparece = false
     }
 }
 
