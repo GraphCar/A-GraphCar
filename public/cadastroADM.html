@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="toastr.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/cadastroADM.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <title>Cadastro Adm</title>
-</head>
-<body>
-    <header>
-        <img src="assets/img/graph.png" alt="Logo_GraphCar" srcset="" width="300px">
-    </header>
 
-    <div class="login-box">
-        <h2>Cadastro de Administrador</h2>
-        <form>
-          <div class="user-box">
-            <input type="text" name="" required="" id="ipt_nome_adm">
-            <label>Nome</label>
-          </div>
-          <div class="user-box">
-            <input type="email" name="" required="" id="ipt_email_adm">
-            <label>E-mail</label>
-          </div>
-          <div class="user-box">
-            <input type="number" name="" required="" id="ipt_cpf_adm">
-            <label>CPF</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="" required="" id="ipt_senha_adm">
-            <label>Senha</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="" required="" id="ipt_confirm_senha_adm">
-            <label>Confirmar senha</label>
-          </div>
-          <a href="#" onclick="adm()">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Cadastrar
-        </form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="toastr.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/cadastroADM.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <title>Cadastro Adm</title>
+</head>
+
+<body>
+  <header>
+    <img src="assets/img/graph.png" alt="Logo_GraphCar" srcset="" width="300px">
+  </header>
+
+  <div class="login-box">
+    <h2>Cadastro de Administrador</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="" required="" id="ipt_nome_adm">
+        <label>Nome</label>
       </div>
+      <div class="user-box">
+        <input type="email" name="" required="" id="ipt_email_adm">
+        <label>E-mail</label>
+      </div>
+      <div class="user-box">
+        <input type="number" name="" required="" id="ipt_cpf_adm">
+        <label>CPF</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="" id="ipt_senha_adm">
+        <label>Senha</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="" required="" id="ipt_confirm_senha_adm">
+        <label>Confirmar senha</label>
+      </div>
+      <a href="#" onclick="adm()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Cadastrar
+    </form>
+  </div>
 </body>
+
 </html>
 <script src="assets/js/cadastroADM.js"></script>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
-  </style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+</style>
 
-  <script>
+<script>
 
-toastr.options = {
+  toastr.options = {
     "closeButton": true,
     "debug": false,
     "newestOnTop": false,
@@ -75,7 +78,7 @@ toastr.options = {
   }
 
 
-function adm() {
+  function adm() {
 
     var nome = ipt_nome_adm.value;
     var email = ipt_email_adm.value;
@@ -87,14 +90,22 @@ function adm() {
     if (nome == '') {
       toastr.error("<b style='font-family: arial;'> Insira um nome válido</b>")
       verificacao = false
-    } else if (nome.length <= 4) {
+    } else if (nome.length < 4) {
       toastr.error("<b style='font-family: arial;'>Nome deve ter mais de 4 caracteres</b>")
       verificacao = false
-    } 
+    }
     if (email == '') {
       toastr.error("<b style='font-family: arial;'> Insira um email válido</b>")
       verificacao = false
-    } if (senha == '') {
+    } if (cpf == '') {
+      toastr.error("<b style='font-family: arial;'> Insira um CPF</b>")
+      verificacao = false
+    } else if (cpf.length < 11 || cpf.length > 11) {
+      toastr.error("<b style='font-family: arial;'> Insira um CPF válido</b>")
+      verificacao = false
+    }
+
+    if (senha == '') {
       toastr.error("<b style='font-family: arial;'> Insira uma senha</b>")
       verificacao = false
     } else if (senha.length < 6) {
@@ -106,50 +117,53 @@ function adm() {
     } if (confirmSenha != senha) {
       toastr.error("<b style='font-family: arial;'> Senhas diferentes </b>")
       verificacao = false
-    } 
-      
+    }
+
     if (verificacao) {
 
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              nomeServer: nome,
-              emailServer: email,
-              cpfServer: cpf,
-              senhaServer: senhaVar,
-            }),
-          })
-            .then(function (resposta) {
-              console.log("resposta: ", resposta);
-      
-              if (resposta.ok) {
-                cardErro.style.display = "block";
-      
-                mensagem_erro.innerHTML =
-                  "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-      
-                setTimeout(() => {
-                  window.location = "login.html";
-                }, "2000");
-      
-                limparFormulario();
-                finalizarAguardar();
-              } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-              }
-            })
-            .catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-              finalizarAguardar();
-            });
-          return false;
-    }
+      fetch("/Usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nome,
+        emailServer: email,
+        cpfServer: cpf,
+        senhaServer: senha,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
       }
   
 
-  </script>
+
+
+</script>
