@@ -6,6 +6,9 @@
     <link href="toastr.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/cadastroADM.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <title>Cadastro Adm</title>
 </head>
 <body>
@@ -21,11 +24,11 @@
             <label>Nome</label>
           </div>
           <div class="user-box">
-            <input type="text" name="" required="" id="ipt_email_adm">
+            <input type="email" name="" required="" id="ipt_email_adm">
             <label>E-mail</label>
           </div>
           <div class="user-box">
-            <input type="text" name="" required="" id="ipt_cpf_adm">
+            <input type="number" name="" required="" id="ipt_cpf_adm">
             <label>CPF</label>
           </div>
           <div class="user-box">
@@ -36,7 +39,7 @@
             <input type="password" name="" required="" id="ipt_confirm_senha_adm">
             <label>Confirmar senha</label>
           </div>
-          <button a href="#" onclick="adm()">
+          <a href="#" onclick="adm()">
             <span></span>
             <span></span>
             <span></span>
@@ -50,3 +53,103 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
   </style>
+
+  <script>
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "3500",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+
+function adm() {
+
+    var nome = ipt_nome_adm.value;
+    var email = ipt_email_adm.value;
+    var cpf = ipt_cpf_adm.value;
+    var senha = ipt_senha_adm.value;
+    var confirmSenha = ipt_confirm_senha_adm.value;
+    var verificacao = true;
+
+    if (nome == '') {
+      toastr.error("<b style='font-family: arial;'> Insira um nome válido</b>")
+      verificacao = false
+    } else if (nome.length <= 4) {
+      toastr.error("<b style='font-family: arial;'>Nome deve ter mais de 4 caracteres</b>")
+      verificacao = false
+    } 
+    if (email == '') {
+      toastr.error("<b style='font-family: arial;'> Insira um email válido</b>")
+      verificacao = false
+    } if (senha == '') {
+      toastr.error("<b style='font-family: arial;'> Insira uma senha</b>")
+      verificacao = false
+    } else if (senha.length < 6) {
+      toastr.error("<b style='font-family: arial;'> Senha deve ter mais de 6 caracteres </b>")
+      verificacao = false
+    } if (confirmSenha == '') {
+      toastr.error("<b style='font-family: arial;'> Confirme sua senha </b>")
+      verificacao = false
+    } if (confirmSenha != senha) {
+      toastr.error("<b style='font-family: arial;'> Senhas diferentes </b>")
+      verificacao = false
+    } 
+      
+    if (verificacao) {
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              nomeServer: nome,
+              emailServer: email,
+              cpfServer: cpf,
+              senhaServer: senhaVar,
+            }),
+          })
+            .then(function (resposta) {
+              console.log("resposta: ", resposta);
+      
+              if (resposta.ok) {
+                cardErro.style.display = "block";
+      
+                mensagem_erro.innerHTML =
+                  "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+      
+                setTimeout(() => {
+                  window.location = "login.html";
+                }, "2000");
+      
+                limparFormulario();
+                finalizarAguardar();
+              } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+              }
+            })
+            .catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
+              finalizarAguardar();
+            });
+          return false;
+    }
+      }
+  
+
+  </script>
