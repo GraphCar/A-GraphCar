@@ -1,4 +1,4 @@
-<script src="toastr.js"></script>
+{/* <script src="toastr.js"></script>
 
 function adm() {
     var nome = ipt_nome_adm;
@@ -81,4 +81,4 @@ function adm() {
     
     }
   
-
+ */}

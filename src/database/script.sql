@@ -1,5 +1,6 @@
--- CREATE USER 'GraphUser'@'localhost' IDENTIFIED BY 'Graph2023';
--- GRANT ALL PRIVILEGES ON Graph.* TO 'GraphUser'@'localhost';
+-- Active: 1692980043447@@127.0.0.1@3306@graphcar
+CREATE USER 'GraphUser'@'localhost' IDENTIFIED BY 'Graph2023';
+GRANT ALL PRIVILEGES ON Graph.* TO 'GraphUser'@'localhost';
 
 DROP DATABASE IF EXISTS GraphCar;
 CREATE DATABASE GraphCar;
@@ -48,3 +49,5 @@ CREATE TABLE Dados(
     CONSTRAINT fhkCarro FOREIGN KEY (fkCarro) REFERENCES Carro(idCarro),
     CONSTRAINT fhkComponentes FOREIGN KEY (fkComponentes) REFERENCES Componentes(idComponentes)
 );
+
+SELECT * FROM usuario;
