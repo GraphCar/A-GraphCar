@@ -8,7 +8,7 @@ var PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
 
 var app = express();
 
-var usuarioRouter = require("../src/routes/index");
+var usuarioRouter = require("../src/routes/usuarios");
 
 app.listen(PORTA, function () {
     console.log(`Servidor Rodando Em: http://localhost:${PORTA} \n
