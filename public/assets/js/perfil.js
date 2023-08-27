@@ -6,6 +6,28 @@ var dadosmostrados = {
     confg: false
 }
 
+function carregarPagina(idUsuario) {
+    fetch(`/Perfil/Perfil/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                infos = resposta[0]
+                var nome = document.getElementById("nomeUsuario");
+                nome.innerHTML = infos.nome;
+                // var Foto = document.getElementById("usuarioFoto");
+                // Foto.src = `../assets/${infos.foto}`;
+
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+
+    });
+}
+
 function mostrarControle() {
 
     if (!aparece) {
