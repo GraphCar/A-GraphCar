@@ -20,7 +20,7 @@
             <div class="usuario">
                 <button id="hamburguer"><img src="assets/img/Hamburger_icon.png" onclick="mostrarControle()"></button>
                 <img src="assets/img/user.png" class="foto">
-                <h2 id="nome">Usuario(a)</h2>
+                <h2 id="nomeUsuario">Usuario(a)</h2>
             </div>
             <div class="interacao" id="interacao">
                 <button class="botao" onclick="dadosCadastro()">Dados de cadastro</button>
@@ -54,6 +54,9 @@
 <script src="js/bootstrap.js"></script> -->
 
 <script>
+    var idUsuario = localStorage.ID_USUARIO;
+    carregarPagina(idUsuario)
+
     function redirecionar_login(){
         window.location="./login.html";
     }

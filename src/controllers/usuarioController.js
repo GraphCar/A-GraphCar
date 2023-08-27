@@ -53,13 +53,13 @@ function entrar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
 
     } else {
-        usuarioModel.entrar(email)
+        usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
 
                     var usuario = resultado[0];
 
-                    if((resultado.length-1) == 0){
+                    if(resultado.length == 1){
                         
                         bcrypt.compare(senha, usuario['senha'], function(err, result) {
                             if(result){
@@ -74,7 +74,7 @@ function entrar(req, res) {
                             }
                         });
 
-                    }else if((resultado.length-1) < 0){
+                    }else if(resultado.length == 0){
                         res.status(403).send('Email e/ou senha inválido(s)');
 
                     }else{

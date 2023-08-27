@@ -9,9 +9,9 @@ USE GraphCar;
 CREATE TABLE Usuario(
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
-    email VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
     senha VARCHAR(64),
-    cpf CHAR (11), 
+    cpf CHAR (11) UNIQUE, 
     adm TINYINT
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE ModeloCarro(
 
 CREATE TABLE Carro(
 	idCarro INT PRIMARY KEY AUTO_INCREMENT,
-    Placa VARCHAR(15),
+    Placa VARCHAR(15) UNIQUE,
 	fkUsuario INT,
     fkModelo INT,
     CONSTRAINT fhkUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
@@ -52,31 +52,30 @@ CREATE TABLE Dados(
 DELIMITER //
 CREATE PROCEDURE CADASTRAR_MOTORISTA(IN US_NOME VARCHAR
 (50), US_EMAIL VARCHAR(100), US_SENHA VARCHAR(64), 
-US_CPF VARCHAR(11), C_PLACA VARCHAR(15), MC_MODELO 
-VARCHAR(30)) BEGIN 
+US_CPF VARCHAR(11), C_PLACA VARCHAR(15), MC_MODELO VARCHAR(30)) BEGIN 
 	INSERT INTO usuario (nome, email, senha, CPF)
 	VALUES ( us_nome, us_email, us_senha, us_CPF);
     INSERT INTO ModeloCarro (Modelo)
     VALUES (mc_modelo);
-	INSERT INTO Carro (Placa, fkUsuario, fkModelo)
+	INSERT INTO Carro (Placa , fkUsuario, fkModelo)
 	VALUES ( c_placa,
-        (SELECT idUsuario FROM usuario WHERE email = us_email), 
-        (SELECT mc.idCarro FROM ModeloCarro mc WHERE placa = c_placa));
+    (SELECT idUsuario FROM usuario WHERE email = us_email),
+    (SELECT idCarro FROM ModeloCarro WHERE idCarro = (SELECT idUsuario FROM usuario WHERE email = us_email)));
 	END// 
 DELIMITER ;
 
-SELECT * FROM usuario;
 
-DELETE from ModeloCarro WHERE idCarro < 100;
+-- SELECT * FROM usuario;
+-- SELECT * FROM carro;
+-- SELECT * FROM modeloCarro;
 
--- SELECT u.nome, 
---        u.cpf, 
---        Modelo, 
---        c.Placa, 
---        u.email, 
---        u.senha 
---        FROM usuario u JOIN Carro c JOIN ModeloCarro;
+-- DELETE from usuario WHERE idUsuario < 14 ;
+-- DELETE from ModeloCarro WHERE idCarro < 14 ;
+-- DELETE from Carro WHERE idCarro < 14;
+
+-- SELECT *
+--        FROM usuario u JOIN Carro c JOIN ModeloCarro mc on c.idCarro = mc.idCarro AND idUsuario = c.idCarro;
 
 -- Exemplo de call da procedure
 -- CALL cadastrar_motorista 
--- ('Lucas Neves', 'lucas@gmail.com', 'lucas123', '54496745895', 'ekk0784', 'model X');
+-- ('lucas', 'lucas@gmail.com', 'lucas123', '54496745895', 'bbb9999', 'model X');
