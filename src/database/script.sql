@@ -65,7 +65,7 @@ US_CPF VARCHAR(11), C_PLACA VARCHAR(15), MC_MODELO VARCHAR(30)) BEGIN
 DELIMITER ;
 
 
--- SELECT * FROM usuario;
+ -- SELECT * FROM usuario;
 -- SELECT * FROM carro;
 -- SELECT * FROM modeloCarro;
 
