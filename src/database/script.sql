@@ -16,7 +16,7 @@ CREATE TABLE Usuario(
 );
 
 CREATE TABLE ModeloCarro(
-	idCarro INT PRIMARY KEY AUTO_INCREMENT,
+	idModelo INT PRIMARY KEY AUTO_INCREMENT,
     Modelo VARCHAR(30),
     VersaoSoftware VARCHAR(60)
 );
@@ -27,7 +27,7 @@ CREATE TABLE Carro(
 	fkUsuario INT,
     fkModelo INT,
     CONSTRAINT fhkUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
-    CONSTRAINT fhkModelo FOREIGN KEY (fkModelo) REFERENCES ModeloCarro(idCarro)
+    CONSTRAINT fhkModelo FOREIGN KEY (fkModelo) REFERENCES ModeloCarro(idModelo)
 );
 
 CREATE TABLE Componentes(
@@ -49,6 +49,7 @@ CREATE TABLE Dados(
     CONSTRAINT fhkCarro FOREIGN KEY (fkCarro) REFERENCES Carro(idCarro),
     CONSTRAINT fhkComponentes FOREIGN KEY (fkComponentes) REFERENCES Componentes(idComponentes)
 );
+
 DELIMITER //
 CREATE PROCEDURE CADASTRAR_MOTORISTA(IN US_NOME VARCHAR
 (50), US_EMAIL VARCHAR(100), US_SENHA VARCHAR(64), 
@@ -60,10 +61,9 @@ US_CPF VARCHAR(11), C_PLACA VARCHAR(15), MC_MODELO VARCHAR(30)) BEGIN
 	INSERT INTO Carro (Placa , fkUsuario, fkModelo)
 	VALUES ( c_placa,
     (SELECT idUsuario FROM usuario WHERE email = us_email),
-    (SELECT idCarro FROM ModeloCarro WHERE idCarro = (SELECT idUsuario FROM usuario WHERE email = us_email)));
+    (SELECT idModelo FROM ModeloCarro WHERE idModelo = (SELECT idUsuario FROM usuario WHERE email = us_email)));
 	END// 
 DELIMITER ;
-
 
  -- SELECT * FROM usuario;
 -- SELECT * FROM carro;

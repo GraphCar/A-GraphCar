@@ -32,6 +32,9 @@ function cadastrar(){
     if (modeloCarro == '') {
         toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
         verificacao = false
+    } else if (modeloCarro.length < 7) {
+        toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
+        verificacao = false
     }
     if (placaCarro == '') {
         toastr.error("<b style='font-family: arial;'> Insira uma placa válida</b>")
@@ -43,18 +46,16 @@ function cadastrar(){
 
     if (verificacao) {
 
-        fetch("/Usuarios/cadastrar", {
+        fetch("/Carro/cadastrarCarro", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
         body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nome,
-        emailServer: email,
-        cpfServer: cpf,
-        senhaServer: senha,
+
+        nomeServer: nomeMotorista,
+        modeloServer: modeloCarro,
+        placaServer: placaCarro,
         }),
     })
         .then(function (resposta) {
@@ -64,10 +65,10 @@ function cadastrar(){
             cardErro.style.display = "block";
 
             mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            "Cadastro realizado com sucesso! Redirecionando para tela de Perfil...";
 
             setTimeout(() => {
-            window.location = "login.html";
+            window.location = "perfil.html";
             }, "2000");
 
             limparFormulario();
@@ -82,10 +83,4 @@ function cadastrar(){
 
     return false;
     }
-}
-
-function clearForm() {
-    ipt_nome_piloto.value = '';
-    ipt_modelo_carro.value = '';
-    ipt_placa_carro.value = '';
 }
