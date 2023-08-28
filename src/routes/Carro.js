@@ -8,8 +8,8 @@ router.post("/cadastrarCarro", function (req, res) {
 });
 
 
-router.get("/listarCarro", function (req, res) {
-    carroController.listarCarro(req, res);
-});
+// router.get("/listarCarro", function (req, res) {
+//     carroController.listarCarro(req, res);
+// });
 
 module.exports = router;
