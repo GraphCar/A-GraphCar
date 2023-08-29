@@ -3,8 +3,6 @@ var router = express.Router();
 
 const usuarioController = require("../controllers/usuarioController");
 
-console.log("llllllllllllllllllll")
-
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
