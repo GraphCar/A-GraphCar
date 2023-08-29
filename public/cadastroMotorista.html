@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/cadastroMotorista.css">
 
     <link href="./assets/img/favicon.png" rel="icon">
@@ -14,95 +15,55 @@
 
 </head>
 <body>
- <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">GRAPHCAR</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+    <header>
+        <img src="assets/img/graph.png" alt="Logo_GraphCar" srcset="" width="300px">
+      </header>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">A Graph</a></li>
-          <li><a class="nav-link scrollto" href="#services">Produto</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Planos</a></li>
-          <li><a class="nav-link scrollto" href="#team">Nossa Equipe</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+    <div class="login-box">
+        <h2>Cadastro de Motorista</h2>
+        <form>
+          <div class="user-box">
+            <input type="text" name="" required="" id="ipt_nome">
+            <label>Nome</label>
+          </div>
+          <div class="user-box">
+            <input type="email" name="" required="" id="ipt_cpf">
+            <label>CPF</label>
+          </div>
+          <div class="user-box">
+            <input type="number" name="" required="" id="ipt_modelo">
+            <label>Modelo</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="" required="" id="ipt_placa">
+            <label>Placa</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="" required="" id="ipt_email">
+            <label>Email</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="" required="" id="ipt_senha">
+            <label>Senha</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="" required="" id="ipt_confirmarSenha">
+            <label>Confirmar Senha</label>
+          </div>
+          <a href="#" onclick="cadastrar()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Cadastrar
+        </form>
+      </div>
+      <div class="msg-cadastro">
+        <p class="p-msg-cadastro">Já tem uma conta?</p> <a href="login.html" class="a-msg-cadastro"> Clique Aqui!</a>
+       </div>
 
-        </ul>
-        <a class="img-link"><img src="assets/img/help-icon.png"></a>
-        <a href="perfil.html" class="img-link"><img src="assets/img/Person-icon.png"></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-    <div class="main">
-        <div class="vidro">
-            <div class="inserir-dados">
-                <input type="text" id="ipt_nome">
-                <label>Nome de usuário</label>
-            </div>
-
-            <div class="inserir-dados">
-                <input type="number" id="ipt_cpf">
-                <label>CPF</label>
-            </div>
-            
-            <div class="inserir-dados">
-                <input type="text" id="ipt_modelo">
-                <label>Modelo do seu carro</label>
-            </div>
-
-            <div class="inserir-dados">
-                <input type="text" id="ipt_placa">
-                <label>Placa do carro</label>
-            </div>
-
-            <div class="inserir-dados">
-                <input type="text" id="ipt_email">
-                <label>Email</label>
-            </div>
-
-            <div class="inserir-dados">
-                <input type="password" id="ipt_senha">
-                <label>Senha</label>
-            </div>
-
-            <div class="inserir-dados">
-                <input type="password" id="ipt_confirmarSenha">
-                <label>Confirmar senha</label>
-            </div>
-
-            <!-- <button onclick="perfil()">Cadastrar</button> -->
-            <a onclick="cadastrar()">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Cadastrar
-              </a>
-        </div>
-    </div>
 
 </body>
 </html>
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-<!-- <script src="js/navbar.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/bootstrap.js"></script> -->
 <script src="assets/js/cadastroMotorista.js"></script>
-
-<!-- <script>
-    function perfil() {
-        setTimeout(() => {
-                    window.location = "perfil.html";
-                    alert("Indo a tela de perfil")
-                }, "200")
-
-    }
-</script> -->
