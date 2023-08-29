@@ -58,15 +58,12 @@ function entrar(req, res) {
                 function (resultado) {
 
                     var usuario = resultado[0];
-
+                    console.log(usuario, usuario['email'])
                     if(resultado.length == 1){
                         
                         bcrypt.compare(senha, usuario['senha'], function(err, result) {
                             if(result){
-                                //LOGIN APROVADO
-                                req.session.EMAIL_USUARIO = usuario.emailUsuario;
-                                req.session.NOME_USUARIO = usuario.nomeUsuario;
-                                req.session.ID_USUARIO = usuario.idUsuario;                       
+                                //LOGIN APROVADO                   
                                 res.json(usuario);
                             }else{
                                 //ERRO
