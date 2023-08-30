@@ -1,0 +1,3 @@
+[submodule "public/D-GraphCar"]
+	path = public/D-GraphCar
+	url = https://github.com/GraphCar/D-GraphCar.git
