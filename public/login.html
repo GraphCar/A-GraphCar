@@ -126,9 +126,9 @@
                 resposta.json().then(json => {
                     console.log(json);
 
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
-                    sessionStorage.SENHA_USUARIO = json.senhaServer;
+                    localStorage.ID_USUARIO = json.idUsuario;
+                    localStorage.EMAIL_USUARIO = json.emailUsuario;
+                    localStorage.SENHA_USUARIO = json.senhaServer;
 
                     window.location = 'perfil.html';
 
