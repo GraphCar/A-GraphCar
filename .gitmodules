@@ -1,3 +1,6 @@
 [submodule "public/D-GraphCar"]
 	path = public/D-GraphCar
 	url = https://github.com/GraphCar/D-GraphCar.git
+[submodule "src/database/B-GraphCar"]
+	path = src/database/B-GraphCar
+	url = https://github.com/GraphCar/B-GraphCar.git
