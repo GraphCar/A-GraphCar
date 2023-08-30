@@ -7,7 +7,7 @@ function cadastrarCarro(nomeMotorista, modeloCarro, placaCarro) {
     // e na ordem de inserção dos dados.
     var instrucao = `INSERT INTO ModeloCarro (Modelo) VALUES ('${modeloCarro}');
                      INSERT INTO Carro (Placa, fkModelo) VALUES 
-                        ('${placaCarro}', '(SELECT idModelo WHERE Modelo = '${modeloCarro}')')`;
+                        ('${placaCarro}', '(SELECT idModelo WHERE Modelo = '${modeloCarro}')');`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
