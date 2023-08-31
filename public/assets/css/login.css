@@ -200,3 +200,9 @@ a {
     color:#cc1616;
     text-decoration: none;
 }
+
+@media screen and (max-width: 670px) {
+  .login-box {
+    width: 90%;
+  }
+}

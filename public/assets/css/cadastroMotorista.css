@@ -211,6 +211,10 @@ header {
 }
 
 @media screen and (max-width: 670px) {
+    .login-box {
+      width: 90%;
+    }
+
     .main {
         height: 100%;
         background-position: center center;
