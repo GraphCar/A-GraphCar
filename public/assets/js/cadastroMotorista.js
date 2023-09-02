@@ -1,3 +1,9 @@
+var planoVar = new URLSearchParams(window.location.search).get("p");
+
+if (planoVar < 1) {
+    window.location = "index.html"
+}
+
 function cadastrar() {
     // Card 1
     var nomeVar = ipt_nome.value;
@@ -73,6 +79,7 @@ function cadastrar() {
                 cpfServer: cpfVar,
                 placaServer: placaVar,
                 modeloServer: modeloVar,
+                planoServer: planoVar,
             })
         }).then(function (resposta) {
             console.log("resposta: ", resposta);

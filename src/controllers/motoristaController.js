@@ -11,9 +11,10 @@ function cadastrarMotorista(req, res) {
     var cpf = req.body.cpfServer;
     var placa = req.body.placaServer;
     var modelo = req.body.modeloServer;
+    var plano = req.body.planoServer;
 
 
-    console.log(`${nome} ${email} ${senha} ${cpf} ${placa} ${modelo}`);
+    console.log(`${nome} ${email} ${senha} ${cpf} ${placa} ${modelo} ${plano}`);
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -28,13 +29,16 @@ function cadastrarMotorista(req, res) {
         res.status(400).send("Sua placa está undefined!");
     } else if (modelo == undefined) {
         res.status(400).send("Seu modelo está undefined!");
-    } 
+    } else if (plano == undefined) {
+        res.status(400).send("Seu modelo está undefined!");
+    }
 
     else {
         // Passe os valores como parâmetro e vá para o arquivo funcionarioModel.js
-        motoristaModel.cadastrarMotorista(nome, email, senha, cpf, placa, modelo)
+        motoristaModel.cadastrarMotorista(nome, email, senha, cpf, placa, modelo, plano)
             .then(
                 function (resultado) {
+
                     res.json(resultado);
                 }
             ).catch(
