@@ -6,35 +6,35 @@ var dadosmostrados = {
     confg: false
 }
 
-function carregarPagina(idUsuario) {
-    fetch(`/Perfil/Perfil/${idUsuario}`).then(function (resposta) {
-        if (resposta.ok) {
+// function carregarPagina(idUsuario) {
+//     fetch(`/Perfil/Perfil/${idUsuario}`).then(function (resposta) {
+//         if (resposta.ok) {
 
-            resposta.json().then(function (resposta) {
-                // console.log("Dados recebidos: ", JSON.stringify(resposta));
-                infos = resposta[0]
-                var nome = document.getElementById("nomeUsuario");
-                nome.innerHTML = infos.nome;
-                // var Foto = document.getElementById("usuarioFoto");
-                // Foto.src = `../assets/${infos.foto}`;
+//             resposta.json().then(function (resposta) {
+//                 // console.log("Dados recebidos: ", JSON.stringify(resposta));
+//                 infos = resposta[0]
+//                 var nome = document.getElementById("nomeUsuario");
+//                 nome.innerHTML = infos.nome;
+//                 // var Foto = document.getElementById("usuarioFoto");
+//                 // Foto.src = `../assets/${infos.foto}`;
 
-            });
-        } else {
-            throw ('Houve um erro na API!');
-        }
-    }).catch(function (resposta) {
-        console.error(resposta);
+//             });
+//         } else {
+//             throw ('Houve um erro na API!');
+//         }
+//     }).catch(function (resposta) {
+//         console.error(resposta);
 
-    });
-}
+//     });
+// }
 
 function mostrarControle() {
 
     if (!aparece) {
         controle.style = "width: 100%;";
         hamburguer.style = "width: 60%;";
-        hamburguer.innerHTML = '<img src="assets/img/user.png" onclick="mostrarControle()">';
-        nome.style = "display: block;";
+        hamburguer.innerHTML = '<img src="assets/img/fotoUsuarios/user.png" onclick="mostrarControle()">';
+        nomeUsuario.style = "display: block;";
         interacao.style = "display: flex;";
         dadosGerais.style = "width: 0%;";
 
@@ -42,7 +42,7 @@ function mostrarControle() {
     } else {
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -56,7 +56,7 @@ function dadosCadastro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -110,7 +110,7 @@ function dadosCarro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -165,7 +165,7 @@ function confCarro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 

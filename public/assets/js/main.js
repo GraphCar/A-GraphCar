@@ -248,3 +248,15 @@
   });
 
 })()
+
+function planoSimples() {
+  var url = `cadastroMotorista.html?p=${1}`;
+
+  window.location = url; 
+}
+
+function planoPremium() {
+  var url = `cadastroMotorista.html?p=${2}`;
+
+  window.location = url; 
+}
