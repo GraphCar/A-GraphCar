@@ -34,15 +34,15 @@ function mostrarControle() {
         controle.style = "width: 100%;";
         hamburguer.style = "width: 60%;";
         hamburguer.innerHTML = '<img src="assets/img/fotosUsuarios/user.png" onclick="mostrarControle()">';
-        nome.style = "display: block;";
+        nomeUsuario.style = "display: block;";
         interacao.style = "display: flex;";
-        dadosGerais.style = "width: 0%;";
+        dadosGerais.style = "display: none;";
 
         aparece = true
     } else {
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -56,7 +56,7 @@ function dadosCadastro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -110,7 +110,7 @@ function dadosCarro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
@@ -165,7 +165,7 @@ function confCarro() {
 
         controle.style = "width: 10%";
         hamburguer.style = "width: 100%;";
-        nome.style = "display: none;";
+        nomeUsuario.style = "display: none;";
         interacao.style = "display: none;";
         dadosGerais.style = "width: 90%;";
 
