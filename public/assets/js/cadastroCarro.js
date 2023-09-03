@@ -20,6 +20,7 @@ function cadastrar(){
     var nomeMotorista = ipt_nome_piloto.value;
     var modeloCarro = ipt_modelo_carro.value;
     var placaCarro = ipt_placa_carro.value;
+    
     var verificacao = true;
 
     if (nomeMotorista == '') {
