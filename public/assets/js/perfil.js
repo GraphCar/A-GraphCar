@@ -1,10 +1,5 @@
 var aparece = false;
 
-var dadosmostrados = {
-    cadastro: false,
-    carro: false,
-    confg: false
-}
 
 function carregarPagina(idUsuario) {
     fetch(`/Perfil/Perfil/${idUsuario}`).then(function (resposta) {
@@ -18,6 +13,7 @@ function carregarPagina(idUsuario) {
                 var Foto = document.getElementById("usuarioFoto");
                 Foto.src = `assets/img/fotosUsuarios/${infos.foto}`;
                 sessionStorage.FOTO = infos.foto;
+                sessionStorage.ID_MODELO = infos.idModelo;
             });
         } else {
             throw ('Houve um erro na API!');
@@ -89,46 +85,19 @@ function dadosCadastro(idUsuario) {
                     interacao.style = "display: none;";
                     dadosGerais.style = "width: 90%;";
 
-                    if (dadosmostrados.cadastro) {
 
-                        dCadastro.style = "display: none;";
-                        dCarro.style = "display: none;";
-                        confgCarro.style = "display: none;";
+                    dCadastro.style = "display: flex;";
+                    dCarro.style = "display: none;";
+                    confgCarro.style = "display: none;";
 
-                        dadosmostrados.cadastro = false
-
-                    } else {
-
-                        dCadastro.style = "display: flex;";
-                        dCarro.style = "display: none;";
-                        confgCarro.style = "display: none;";
-
-                        dadosmostrados.cadastro = true
-                        dadosmostrados.carro = false
-                        dadosmostrados.confg = false
-                    }
 
                     aparece = false
 
                 } else {
 
-                    if (dadosmostrados.cadastro) {
-
-                        dCadastro.style = "display: none;";
-                        dCarro.style = "display: none;";
-                        confgCarro.style = "display: none;";
-
-                        dadosmostrados.cadastro = false
-
-                    } else {
-                        dCadastro.style = "display: flex;";
-                        dCarro.style = "display: none;";
-                        confgCarro.style = "display: none;";
-
-                        dadosmostrados.cadastro = true
-                        dadosmostrados.carro = false
-                        dadosmostrados.confg = false
-                    }
+                    dCadastro.style = "display: flex;";
+                    dCarro.style = "display: none;";
+                    confgCarro.style = "display: none;";
 
                 }
             });
@@ -145,118 +114,117 @@ function dadosCadastro(idUsuario) {
 }
 
 
-function dadosCarro() {
+function exibirCarro(idUsuario) {
 
-    if (aparece) {
+    fetch(`/Perfil/exibirCarro/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
 
-        hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
-        controle.style = "width: 10%";
-        hamburguer.style = "width: 100%;";
-        nomeUsuario.style = "display: none;";
-        nomeUsuario.style = "display: none;";
-        interacao.style = "display: none;";
-        dadosGerais.style = "width: 90%;";
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                infos = resposta[0]
 
-        if (dadosmostrados.carro) {
 
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: none;";
+                var placa = document.getElementById("placaCarro");
+                placa.innerHTML = infos.placa;
+                var modelo = document.getElementById("modeloCarro");
+                modelo.innerHTML = infos.modelo;
 
-            dadosmostrados.carro = false
+                if (aparece) {
 
-        } else {
+                    hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
+                    controle.style = "width: 10%";
+                    hamburguer.style = "width: 100%;";
+                    nomeUsuario.style = "display: none;";
+                    nomeUsuario.style = "display: none;";
+                    interacao.style = "display: none;";
+                    dadosGerais.style = "width: 90%;";
 
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: flex;";
-            confgCarro.style = "display: none;";
+                    dCadastro.style = "display: none;";
+                    dCarro.style = "display: flex;";
+                    confgCarro.style = "display: none;";
 
-            dadosmostrados.cadastro = false
-            dadosmostrados.carro = true
-            dadosmostrados.confg = false
-        }
+                    aparece = false
 
-        aparece = false
+                } else {
 
-    } else {
+                    dCadastro.style = "display: none;";
+                    dCarro.style = "display: flex;";
+                    confgCarro.style = "display: none;";
 
-        if (dadosmostrados.carro) {
+                }
 
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: none;";
-
-            dadosmostrados.carro = false
+            });
 
         } else {
-
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: flex;";
-            confgCarro.style = "display: none;";
-
-            dadosmostrados.cadastro = false
-            dadosmostrados.carro = true
-            dadosmostrados.confg = false
+            throw ('Houve um erro na API!');
         }
 
-    }
+    }).catch(function (resposta) {
+        console.error(resposta);
+
+    });
 }
 
-function confCarro() {
 
-    if (aparece) {
 
-        hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
-        controle.style = "width: 10%";
-        hamburguer.style = "width: 100%;";
-        nomeUsuario.style = "display: none;";
-        nomeUsuario.style = "display: none;";
-        interacao.style = "display: none;";
-        dadosGerais.style = "width: 90%;";
+function exibirConfgCarro(idModelo) {
 
-        if (dadosmostrados.confg) {
+    fetch(`/Perfil/exibirConfgCarro/${idModelo}`).then(function (resposta) {
+        if (resposta.ok) {
 
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: none;";
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-            dadosmostrados.confg = false
+                cpu = resposta[0];
+                memoria = resposta[1];
+                HD = resposta[2];
+                gpu = resposta[3];
+
+                var CPU = document.getElementById("CPU");
+                CPU.innerHTML = cpu.descricao;
+                var GPU = document.getElementById("GPU");
+                GPU.innerHTML = gpu.descricao;
+                var RAM = document.getElementById("memoria");
+                RAM.innerHTML = memoria.descricao;
+                var armazenamento = document.getElementById("HD");
+                armazenamento.innerHTML = HD.descricao;
+
+
+                if (aparece) {
+
+                    hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
+                    controle.style = "width: 10%";
+                    hamburguer.style = "width: 100%;";
+                    nomeUsuario.style = "display: none;";
+                    nomeUsuario.style = "display: none;";
+                    interacao.style = "display: none;";
+                    dadosGerais.style = "width: 90%;";
+            
+                    dCadastro.style = "display: none;";
+                    dCarro.style = "display: none;";
+                    confgCarro.style = "display: flex;";
+            
+                    aparece = false
+            
+                } else {
+            
+                    dCadastro.style = "display: none;";
+                    dCarro.style = "display: none;";
+                    confgCarro.style = "display: flex;";
+            
+                }
+
+            });
 
         } else {
-
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: flex;";
-
-            dadosmostrados.cadastro = false
-            dadosmostrados.carro = false
-            dadosmostrados.confg = true
+            throw ('Houve um erro na API!');
         }
 
-        aparece = false
+    }).catch(function (resposta) {
+        console.error(resposta);
 
-    } else {
+    });
 
-        if (dadosmostrados.confg) {
-
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: none;";
-
-            dadosmostrados.confg = false
-
-        } else {
-
-            dCadastro.style = "display: none;";
-            dCarro.style = "display: none;";
-            confgCarro.style = "display: flex;";
-
-            dadosmostrados.cadastro = false
-            dadosmostrados.carro = false
-            dadosmostrados.confg = true
-        }
-
-    }
 }
 
 function inicio() {
@@ -266,6 +234,7 @@ function inicio() {
 
 function sair() {
     delete localStorage.ID_USUARIO;
+    delete sessionStorage.ID_MODELO;
 
     window.location = "./login.html";
 }

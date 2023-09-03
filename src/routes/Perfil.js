@@ -11,4 +11,12 @@ router.get("/exibirCadastro/:idUsuario", function (req, res) {
     perfilController.exibirCadastro(req, res);
 });
 
+router.get("/exibirCarro/:idUsuario", function (req, res) {
+    perfilController.exibirCarro(req, res);
+});
+
+router.get("/exibirConfgCarro/:idModelo", function (req, res) {
+    perfilController.exibirConfgCarro(req, res);
+});
+
 module.exports = router;

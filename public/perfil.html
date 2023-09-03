@@ -20,12 +20,12 @@
             <div class="usuario">
                 <button id="hamburguer" onclick="mostrarControle()"><img src="assets/img/Hamburger_icon.png"></button>
                 <img src="" class="foto" id="usuarioFoto">
-                <h2 id="nomeUsuario">Usuario(a)</h2>
+                <h2 id="nomeUsuario"></h2>
             </div>
             <div class="interacao" id="interacao">
                 <button class="botao" onclick="dadosCadastro(idUsuario)">Dados de cadastro</button>
-                <button class="botao" onclick="dadosCarro()">Dados do carro</button>
-                <button class="botao" onclick="confCarro()">Configurações do carro</button>
+                <button class="botao" onclick="exibirCarro(idUsuario)">Dados do carro</button>
+                <button class="botao" onclick="exibirConfgCarro(idModelo)">Configurações do carro</button>
                 <button class="botao" onclick="inicio()">Início</button>
                 <button class="sair" onclick="sair()">Sing-up</button>
             </div>
@@ -35,19 +35,19 @@
 
                 <div class="linha">
                     <h1>Nome</h1>
-                    <p id="nomeCadastro">ADM</p>
+                    <p id="nomeCadastro"></p>
                 </div>
                 <div class="linha">
                     <h1>Email</h1>
-                    <p id="emailCadastro">adm@gmail.com</p>
+                    <p id="emailCadastro"></p>
                 </div>
                 <div class="linha">
                     <h1>CPF</h1>
-                    <p id="CPFCadastro">55555555555</p>
+                    <p id="CPFCadastro"></p>
                 </div>
                 <div class="linha">
                     <h1>Plano</h1>
-                    <p id="planoCadastro">Administrador</p>
+                    <p id="planoCadastro"></p>
                 </div>
                 
             </div>
@@ -56,11 +56,11 @@
 
                 <div class="linha">
                     <h1>Placa</h1>
-                    <p>AAA 9999</p>
+                    <p id="placaCarro"></p>
                 </div>
                 <div class="linha">
                     <h1>Modelo</h1>
-                    <p>Model X</p>
+                    <p id="modeloCarro"></p>
                 </div>
 
             </div>
@@ -69,15 +69,19 @@
 
                 <div class="linha">
                     <h1>Processador</h1>
-                    <p>AMD Zen 1</p>
+                    <p id="CPU"></p>
                 </div>
                 <div class="linha">
                     <h1>Placa de vídeo</h1>
-                    <p>Navi 23 GPU RDNA 2</p>
+                    <p id="GPU"></p>
                 </div>
                 <div class="linha">
                     <h1>Memória</h1>
-                    <p>32 Gb</p>
+                    <p id="memoria"></p>
+                </div>
+                <div class="linha">
+                    <h1>Armazenamento</h1>
+                    <p id="HD"></p>
                 </div>
 
             </div>
@@ -90,4 +94,5 @@
 <script>
     var idUsuario = localStorage.ID_USUARIO;
     carregarPagina(idUsuario)
+    var idModelo = sessionStorage.ID_MODELO;
 </script>
