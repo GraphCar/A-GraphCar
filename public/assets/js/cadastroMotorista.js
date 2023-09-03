@@ -1,8 +1,7 @@
 var planoVar = new URLSearchParams(window.location.search).get("p");
 
 if (planoVar < 1) {
-
-    window.location.href = "index.html";
+    window.location = "index.html"
 }
 
 function cadastrar() {

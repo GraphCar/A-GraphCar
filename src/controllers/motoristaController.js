@@ -30,7 +30,7 @@ function cadastrarMotorista(req, res) {
     } else if (modelo == undefined) {
         res.status(400).send("Seu modelo está undefined!");
     } else if (plano == undefined) {
-        res.status(400).send("Seu modelo está undefined!");
+        res.status(400).send("Seu plano está undefined!");
     }
 
     else {
@@ -38,6 +38,7 @@ function cadastrarMotorista(req, res) {
         motoristaModel.cadastrarMotorista(nome, email, senha, cpf, plano, placa, modelo)
             .then(
                 function (resultado) {
+
                     res.json(resultado);
                 }
             ).catch(

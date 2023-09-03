@@ -34,7 +34,7 @@ header {
   .login-box {
     top: 50%;
     left: 50%;
-    width: 600px;
+    width: 35%;
     padding: 40px;
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
@@ -186,4 +186,33 @@ header {
       bottom: 100%;
     }
   }
-  
+
+  @media screen and (max-width: 1100px) {
+    .login-box {
+      background-position: center center;
+      width: 60%;
+    }
+
+  }
+
+  @media screen and (max-width: 870px) {
+    .login-box {
+        width: 60%;
+        background-position: center center;
+    }
+  }
+
+  @media screen and (max-width: 670px) {
+    .login-box {
+      width: 60%;
+      background-position: center center;
+    }
+
+    .login-box .user-box input {
+      font-size: 9px;
+    }
+
+    .login-box form a {
+      font-size: 14px;
+    }
+  }

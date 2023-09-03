@@ -18,8 +18,8 @@
     <div class="main">
         <div class="controle" id="controle">
             <div class="usuario">
-                <button id="hamburguer"><img src="assets/img/Hamburger_icon.png" onclick="mostrarControle()"></button>
-                <img src="assets/img/fotoUsuarios/user.png" class="foto">
+                <button id="hamburguer" onclick="mostrarControle()"><img src="assets/img/Hamburger_icon.png"></button>
+                <img src="" class="foto" id="usuarioFoto">
                 <h2 id="nomeUsuario">Usuario(a)</h2>
             </div>
             <div class="interacao" id="interacao">
@@ -27,19 +27,58 @@
                 <button class="botao" onclick="dadosCarro()">Dados do carro</button>
                 <button class="botao" onclick="confCarro()">Configurações do carro</button>
                 <button class="botao" onclick="inicio()">Início</button>
-                <button class="sair" onclick="redirecionar_login()">Sing-up</button>
+                <button class="sair" onclick="sair()">Sing-up</button>
             </div>
         </div>
         <div class="dados" id="dadosGerais">
             <div id="dCadastro">
 
+                <div class="linha">
+                    <h1>Nome</h1>
+                    <p>ADM</p>
+                </div>
+                <div class="linha">
+                    <h1>Email</h1>
+                    <p>adm@gmail.com</p>
+                </div>
+                <div class="linha">
+                    <h1>CPF</h1>
+                    <p>55555555555</p>
+                </div>
+                <div class="linha">
+                    <h1>Plano</h1>
+                    <p>Administrador</p>
+                </div>
+                
             </div>
 
             <div id="dCarro">
 
+                <div class="linha">
+                    <h1>Placa</h1>
+                    <p>AAA 9999</p>
+                </div>
+                <div class="linha">
+                    <h1>Modelo</h1>
+                    <p>Model X</p>
+                </div>
+
             </div>
 
             <div id="confgCarro">
+
+                <div class="linha">
+                    <h1>Processador</h1>
+                    <p>AMD Zen 1</p>
+                </div>
+                <div class="linha">
+                    <h1>Placa de vídeo</h1>
+                    <p>Navi 23 GPU RDNA 2</p>
+                </div>
+                <div class="linha">
+                    <h1>Memória</h1>
+                    <p>32 Gb</p>
+                </div>
 
             </div>
         </div>
@@ -47,17 +86,8 @@
 </body>
 </html>
 <script src="assets/js/perfil.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-<!-- <script src="js/navbar.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/bootstrap.js"></script> -->
 
 <script>
     var idUsuario = localStorage.ID_USUARIO;
-    // carregarPagina(idUsuario)
-
-    function redirecionar_login(){
-        window.location="./login.html";
-    }
+    carregarPagina(idUsuario)
 </script>
