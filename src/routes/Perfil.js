@@ -7,4 +7,8 @@ router.get("/Perfil/:idUsuario", function (req, res) {
     perfilController.exibirPerfil(req, res);
 });
 
+router.get("/exibirCadastro/:idUsuario", function (req, res) {
+    perfilController.exibirCadastro(req, res);
+});
+
 module.exports = router;
