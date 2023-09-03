@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url('/public/assets/img/Background-cadastro-carro.png');
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     backdrop-filter: brightness(0.8);
@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    width: 100%;
+    width: 100vw;
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -24,8 +24,8 @@ header {
   /* Css Formulário */
 
 .formulario {
-    width: 50%;
-    height: 60%;
+    width: 50vw;
+    height: 60vh;
     background-color: rgba(255, 255, 255, 0.137);
     border-radius: 10px;
     border: 1px solid #454545;
@@ -34,7 +34,7 @@ header {
   .login-box {
     top: 50%;
     left: 50%;
-    width: 600px;
+    width: 40vw;
     padding: 40px;
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
@@ -47,6 +47,7 @@ header {
     padding: 0;
     color: #fff;
     text-align: center;
+    transition: .5s;
   }
   
   .login-box .user-box {
@@ -186,4 +187,33 @@ header {
       bottom: 100%;
     }
   }
-  
+
+  @media screen and (max-width: 1064px) {
+    .login-box {
+      background-position: center center;
+      width: 60vw;
+    }
+
+  }
+
+  @media screen and (max-width: 670px) {
+    .login-box {
+      width: 60vw;
+      background-position: center center;
+    }
+  }
+
+  @media screen and (max-width: 370px){
+    .login-box h3{
+      font-size: 12px;
+    }
+
+    .login-box .user-box label {
+      font-size: 10px;
+
+    }
+
+    .login-box .user-box input{
+      border-bottom: solid 1px #fff;
+    }
+  }

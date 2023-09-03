@@ -6,8 +6,10 @@ function cadastrarCarro(nomeMotorista, modeloCarro, placaCarro) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     // e na ordem de inserção dos dados.
     var instrucao = `INSERT INTO ModeloCarro (Modelo) VALUES ('${modeloCarro}');
-                     INSERT INTO Carro (Placa, fkModelo) VALUES 
-                        ('${placaCarro}', '(SELECT idModelo WHERE Modelo = '${modeloCarro}')');`;
+                     INSERT INTO Carro (Placa, fkModelo, fkUsuario) VALUES 
+                        ('${placaCarro}',
+                         '(SELECT idModelo WHERE Modelo = '${modeloCarro}' FROM ModeloCarro)',
+                         '(SELECT idUsuario WHERE nome = '${nomeMotorista}' FROM Usuario)' );`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
