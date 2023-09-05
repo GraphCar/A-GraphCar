@@ -28,7 +28,7 @@
             <label>Nome</label>
           </div>
           <div class="user-box">
-            <input type="number" name="" required="" id="ipt_cpf">
+            <input type="text" name="" required="" id="ipt_cpf">
             <label>CPF</label>
           </div>
           <div class="user-box">
@@ -42,7 +42,7 @@
               </select>
           </div>
           <div class="user-box">
-            <input type="text" name="" required="" id="ipt_placa">
+            <input type="text" name="" maxlength="8" required="" id="ipt_placa">
             <label>Placa</label>
           </div>
           <div class="user-box">
@@ -73,3 +73,6 @@
 </body>
 </html>
 <script src="assets/js/cadastroMotorista.js"></script>
+<script>
+  $('#ipt_cpf').mask('000.000.000-00');
+</script>
