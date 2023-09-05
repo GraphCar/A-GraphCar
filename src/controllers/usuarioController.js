@@ -21,8 +21,9 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, cpf , senha)
+        bcrypt.hash(senha, saltRounds, (err, senha_criptografada) =>{
+            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+            usuarioModel.cadastrar(nome, email, cpf, senha_criptografada)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -37,6 +38,8 @@ function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
+        });
+        
     }
 }
 
