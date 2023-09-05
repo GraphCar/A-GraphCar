@@ -12,6 +12,8 @@
 
     <link href="./assets/img/favicon.png" rel="icon">
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
 
 </head>
 <body>
@@ -28,7 +30,7 @@
             <label>Nome</label>
           </div>
           <div class="user-box">
-            <input type="number" name="" required="" id="ipt_cpf">
+            <input type="text" name="" required="" id="ipt_cpf">
             <label>CPF</label>
           </div>
           <div class="user-box">
@@ -67,3 +69,6 @@
 </body>
 </html>
 <script src="assets/js/cadastroMotorista.js"></script>
+<script>
+  $('#ipt_cpf').mask('000.000.000-00');
+</script>

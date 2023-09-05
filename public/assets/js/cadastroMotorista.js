@@ -7,7 +7,7 @@ if (planoVar < 1) {
 function cadastrar() {
     // Card 1
     var nomeVar = ipt_nome.value;
-    var cpfVar = ipt_cpf.value;
+    var cpfVar = ipt_cpf.value.replace('.', '').replace('-', '');
     var modeloVar = ipt_modelo.value;
     var placaVar = ipt_placa.value;
     var emailVar = ipt_email.value;
