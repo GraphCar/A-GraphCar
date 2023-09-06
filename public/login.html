@@ -125,10 +125,11 @@
 
                         resposta.json().then(json => {
                             console.log(json);
-
+                            
+                            localStorage.ID_MODELO = json.idModelo;
                             localStorage.ID_USUARIO = json.idUsuario;
-                            localStorage.EMAIL_USUARIO = json.emailUsuario;
-                            localStorage.SENHA_USUARIO = json.senhaServer;
+                            // localStorage.EMAIL_USUARIO = json.emailUsuario;
+                            // localStorage.SENHA_USUARIO = json.senhaServer;
                             
                            console.log("bbbbbbbbbbbbbbbbb",json)
 

@@ -96,9 +96,9 @@
 
 <script>
     var idUsuario = localStorage.ID_USUARIO;
-    var idModelo = sessionStorage.ID_MODELO;
+    var idModelo = localStorage.ID_MODELO;
 
-    if (idModelo == undefined || idUsuario == undefined) {
+    if (idUsuario == undefined || idModelo == undefined) {
 
         window.location = "login.html";
 

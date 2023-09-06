@@ -141,7 +141,7 @@ body{
 }
 
 #dCarro{
-     width: 80%;
+    width: 80%;
     height: 80%;
 
     display: none;
@@ -172,6 +172,7 @@ body{
     display: flex;
 
     justify-content: space-around;
+    flex-wrap: wrap;
     background-color: rgba(69, 69, 69, 0.40);
     border-radius: 20px;
 }
@@ -248,5 +249,9 @@ body{
 
     .linha {
         flex-wrap: wrap;
+    }
+    
+    .dados #confgCarro, #dCarro, #dCadastro{
+        width: 90%;
     }
 }
