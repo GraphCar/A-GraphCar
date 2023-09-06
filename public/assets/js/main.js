@@ -250,18 +250,6 @@
 })()
 
 function planoSimples() {
-  let url = `cadastroMotorista.html?p=${1}`;
-
-  window.location.href = url;
-}
-
-function planoPremium() {
-  let url = `cadastroMotorista.html?p=${2}`;
-
-  window.location.href = url;
-}
-
-function planoSimples() {
   var url = `cadastroMotorista.html?p=${1}`;
 
   window.location = url; 
