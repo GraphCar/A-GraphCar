@@ -60,13 +60,22 @@ function entrar(req, res) {
             .then(
                 function (resultado) {
 
+
+
                     var usuario = resultado[0];
                     console.log(usuario, usuario['email'])
                     if(resultado.length == 1){
                         
                         bcrypt.compare(senha, usuario['senha'], function(err, result) {
                             if(result){
-                                //LOGIN APROVADO                   
+                                //LOGIN APROVADO
+                                
+                                if(usuario.nivelAcesso>=3){
+                                    usuario["Redirecionamento"]="./D-GraphCar/template/index.html";
+                                } else {
+                                    usuario["Redirecionamento"]="perfil.html";
+                                }
+
                                 res.json(usuario);
                             }else{
                                 //ERRO
