@@ -10,16 +10,14 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/cadastroMotorista.css">
 
-    <link href="./assets/img/favicon.png" rel="icon">
-    <link href="assets/img/favicon.png" rel="apple-touch-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/favicon.png" rel="apple-touch-icon">
 
 </head>
 <body>
 
     <header>
-      <a href="index.html"><img src="assets/img/graph.png" class="img_header" alt="Logo_GraphCar" srcset="" width="300px"></a>
+      <a href="index.html"><img src="/assets/img/graph.png" class="img_header" alt="Logo_GraphCar" srcset="" width="300px"></a>
       </header>
 
     <div class="login-box">
@@ -34,14 +32,14 @@
             <label>CPF</label>
           </div>
           <div class="user-box">
-            <select id="ipt_modelo">
-              <option id="sModelo" selected disabled>Modelo</option>
-              <option value="Model 3">Model 3</option>
-              <option value="Model S">Model S</option>
-              <option value="Model X">Model X</option>
-              <option value="Model Y">Model Y</option>
-            </select>
-            <!-- <label>Modelo</label> -->
+            <input type="text" name="" required="" id="ipt_modelo">
+            <label>Modelo</label>
+              <select name="modelo">
+                  <option value="model3">Model 3</option>
+                  <option value="modelS">Model S</option>
+                  <option value="modelX">Model X</option>
+                  <option value="modelY">Model Y</option>
+              </select>
           </div>
           <div class="user-box">
             <input type="text" name="" maxlength="8" required="" id="ipt_placa">
