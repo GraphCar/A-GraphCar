@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GraphCar</title>
-    <!-- <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/loader.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -22,138 +19,143 @@
 <body>
 
     <header>
-        <a href="index.html"><img src="assets/img/graph.png" class="img_header" alt="Logo_GraphCar" srcset="" width="300px"></a>
-      </header>
+        <a href="index.html"><img src="assets/img/graph.png" class="img_header" alt="Logo_GraphCar" srcset=""
+                width="300px"></a>
+    </header>
 
     <div class="login-box">
         <h2>Login</h2>
         <form>
-          <div class="user-box">
-            <input type="email" name="" required="" id="ipt_email_usuario">
-            <label>E-mail</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="" required="" id="ipt_senha_usuario">
-            <label>Senha</label>
-          </div>
-          <a href="#" onclick="login()">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Entrar
+            <div class="user-box">
+                <input type="email" name="" required="" id="ipt_email_usuario">
+                <label>E-mail</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="" required="" id="ipt_senha_usuario">
+                <label>Senha</label>
+            </div>
+            <a href="#" onclick="login()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Entrar
         </form>
-      </div>
-      <div class="msg-cadastro">
-       <p class="p-msg-cadastro">Não tem uma conta?</p> <a href="cadastroMotorista.html" class="a-msg-cadastro"> Clique Aqui!</a>
-      </div>
+    </div>
+    <div class="msg-cadastro">
+        <p class="p-msg-cadastro">Não tem uma conta?</p> <a href="index.html#planos" class="a-msg-cadastro"> Clique
+            Aqui!</a>
+    </div>
 
-<!-- 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./js/navbar.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/bootstrap.js"></script> -->
 </body>
 
 </html>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
-  </style>  
+</style>
 
 <script>
+    var idUsuario = localStorage.ID_USUARIO;
+    var idModelo = sessionStorage.ID_MODELO;
 
-  toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-bottom-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "3500",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+    if (idModelo != undefined && idUsuario != undefined) {
 
+        window.location = "perfil.html";
 
-    function login(){
-        var email = ipt_email_usuario.value;
-        var senha = ipt_senha_usuario.value;
-        var verificacao = true;
+    } else {
 
-        if(email.length==0){
-            toastr.error("<b style='font-family: arial;'> Insira um email</b>")
-            verificacao = false;
-
-        } else if(email.startsWith("@")){
-            toastr.error("<b style='font-family: arial;'> Insira um email válido</b>")
-            verificacao = false;
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3500",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
         }
 
-        if(senha.length==0){
-            toastr.error("<b style='font-family: arial;'> Insira uma senha</b>")
-            verificacao = false;
-        }
 
-        if(verificacao){
+        function login() {
+            var email = ipt_email_usuario.value;
+            var senha = ipt_senha_usuario.value;
+            var verificacao = true;
 
-            console.log('Realizando o fetch("/Usuarios/autenticar") no login.html');
+            if (email.length == 0) {
+                toastr.error("<b style='font-family: arial;'> Insira um email</b>")
+                verificacao = false;
 
-            fetch("/Usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha,
-            })
-            
-         }).then(function (resposta) {
-
-            if (resposta.ok) {
-
-                console.log('Fetch realizado com sucesso! Resposta: \n' + resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-
-                    localStorage.ID_USUARIO = json.idUsuario;
-                    localStorage.EMAIL_USUARIO = json.emailUsuario;
-                    localStorage.SENHA_USUARIO = json.senhaServer;
-
-                    window.location = 'perfil.html';
-
-                });
-
-            } else {
-                console.log(resposta)
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    alert("Houve um erro ao tentar realizar o login!");
-                });
+            } else if (email.startsWith("@")) {
+                toastr.error("<b style='font-family: arial;'> Insira um email válido</b>")
+                verificacao = false;
             }
 
-         }).catch(function (erro) {
-            console.log(erro);
-         })
+            if (senha.length == 0) {
+                toastr.error("<b style='font-family: arial;'> Insira uma senha</b>")
+                verificacao = false;
+            }
 
-        } else {
-            setTimeout(()=>{
-                error_box.style.display="none";
-            },5000);
+            if (verificacao) {
+
+                console.log('Realizando o fetch("/Usuarios/autenticar") no login.html');
+
+                fetch("/Usuarios/autenticar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        emailServer: email,
+                        senhaServer: senha,
+                    })
+
+                }).then(function (resposta) {
+
+                    if (resposta.ok) {
+
+                        console.log('Fetch realizado com sucesso! Resposta: \n' + resposta);
+
+                        resposta.json().then(json => {
+                            console.log(json);
+
+                            localStorage.ID_USUARIO = json.idUsuario;
+                            localStorage.EMAIL_USUARIO = json.emailUsuario;
+                            localStorage.SENHA_USUARIO = json.senhaServer;
+
+                            window.location = 'perfil.html';
+
+                        });
+
+                    } else {
+                        console.log(resposta)
+                        console.log("Houve um erro ao tentar realizar o login!");
+
+                        resposta.text().then(texto => {
+                            console.error(texto);
+                            alert("Houve um erro ao tentar realizar o login!");
+                        });
+                    }
+
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+
+            } else {
+                setTimeout(() => {
+                    error_box.style.display = "none";
+                }, 5000);
+            }
+
         }
-
     }
 
 </script>

@@ -1,6 +1,6 @@
 var motoristaModel = require("../models/motoristaModel");
-
-var sessoes = [];
+const cripto = require('bcrypt');
+const saltRounds = 10;
 
 function cadastrarMotorista(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -34,8 +34,10 @@ function cadastrarMotorista(req, res) {
     }
 
     else {
+
+        cripto.hash(senha, saltRounds, (err, senha_cripto) =>{
         // Passe os valores como parâmetro e vá para o arquivo funcionarioModel.js
-        motoristaModel.cadastrarMotorista(nome, email, senha, cpf, plano, placa, modelo)
+        motoristaModel.cadastrarMotorista(nome, email, senha_cripto, cpf, plano, placa, modelo)
             .then(
                 function (resultado) {
 
@@ -51,6 +53,7 @@ function cadastrarMotorista(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
+        });
     }
 }
 
