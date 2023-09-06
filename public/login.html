@@ -129,8 +129,10 @@
                             localStorage.ID_USUARIO = json.idUsuario;
                             localStorage.EMAIL_USUARIO = json.emailUsuario;
                             localStorage.SENHA_USUARIO = json.senhaServer;
+                            
+                           console.log("bbbbbbbbbbbbbbbbb",json)
 
-                            window.location = 'perfil.html';
+                            window.location=json.Redirecionamento;
 
                         });
 
