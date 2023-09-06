@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('/public/assets/img/Background-cadastro-carro.png');
+    background-image: url('/assets/img/Background-cadastro-carro.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
