@@ -12,7 +12,6 @@ function carregarPagina(idUsuario) {
                 var Foto = document.getElementById("usuarioFoto");
                 Foto.src = `assets/img/fotosUsuarios/${infos.foto}`;
                 sessionStorage.FOTO = infos.foto;
-                sessionStorage.ID_MODELO = infos.idModelo;
             });
         } else {
             throw ('Houve um erro na API!');
@@ -233,7 +232,7 @@ function inicio() {
 
 function sair() {
     delete localStorage.ID_USUARIO;
-    delete sessionStorage.ID_MODELO;
+    delete localStorage.ID_MODELO;
 
     window.location = "./login.html";
 }

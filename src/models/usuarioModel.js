@@ -15,7 +15,10 @@ function cadastrar(nome, email, cpf, senha) {
 
 function entrar(email,senha){
     console.log("ACESSEI O USUARIO MODEL");
-    var instrucao = `SELECT * FROM Usuario WHERE email = '${email}';`;
+    var instrucao = `SELECT idModelo,
+                        u.* FROM usuario u 
+                        JOIN modelocarro JOIN carro
+                        ON idModelo = fkModelo AND idUsuario = fkUsuario WHERE u.email = '${email}';`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
