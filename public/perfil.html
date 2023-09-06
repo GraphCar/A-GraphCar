@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,9 @@
 
     <link href="./assets/img/favicon.png" rel="icon">
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
-    
+
 </head>
+
 <body>
 
     <div class="main">
@@ -49,7 +51,7 @@
                     <h1>Plano</h1>
                     <p id="planoCadastro"></p>
                 </div>
-                
+
             </div>
 
             <div id="dCarro">
@@ -88,11 +90,21 @@
         </div>
     </div>
 </body>
+
 </html>
 <script src="assets/js/perfil.js"></script>
 
 <script>
     var idUsuario = localStorage.ID_USUARIO;
-    carregarPagina(idUsuario)
     var idModelo = sessionStorage.ID_MODELO;
+
+    if (idModelo == undefined || idUsuario == undefined) {
+
+        window.location = "login.html";
+
+    } else {
+
+        carregarPagina(idUsuario)
+    }
+
 </script>

@@ -1,6 +1,5 @@
 var aparece = false;
 
-
 function carregarPagina(idUsuario) {
     fetch(`/Perfil/Perfil/${idUsuario}`).then(function (resposta) {
         if (resposta.ok) {
