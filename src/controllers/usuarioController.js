@@ -63,7 +63,6 @@ function entrar(req, res) {
 
 
                     var usuario = resultado[0];
-                    console.log(usuario, usuario['email'])
                     if(resultado.length == 1){
                         
                         bcrypt.compare(senha, usuario['senha'], function(err, result) {
