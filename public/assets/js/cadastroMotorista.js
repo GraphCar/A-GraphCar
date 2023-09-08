@@ -60,6 +60,10 @@ function cadastrar() {
     } else {
         ipt_confirmarSenha.style = 'border-color: none';
     }
+    if(modeloVar == 'default'){
+        ipt_modelo.style = 'border-color: red';
+        erroCadastro = true;
+    }
     //Final Validação
 
     if (erroCadastro) {
