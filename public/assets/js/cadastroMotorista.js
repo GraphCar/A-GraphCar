@@ -4,6 +4,28 @@ if (planoVar < 1) {
     window.location = "index.html"
 }
 
+function modelos() {
+    fetch(`/Motorista/mostrarModelos`).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+                infos = resposta
+
+                for (let i = 0; i < resposta.length; i++) {
+                    ipt_modelo.innerHTML += `<option value="${resposta[i].idModelo}" >${resposta[i].Modelo}</option>`;
+                }
+            
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+
+    });
+}
+
 function cadastrar() {
     // Card 1
     var nomeVar = ipt_nome.value;
