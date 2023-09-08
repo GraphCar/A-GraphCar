@@ -12,7 +12,7 @@
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/favicon.png" rel="apple-touch-icon">
-
+    
   <title>Cadastro Carro</title>
 </head>
 <body>
@@ -24,15 +24,16 @@
         <h3>Cadastro de Carro</h3>
         <form>
           <div class="user-box">
-            <input type="text" name="" required="" id="ipt_nome_piloto">
-            <label>Nome</label>
-          </div>
+            <select name="modelo" id="ipt_modelo_carro">
+                <option value="default" disabled selected>Selecione um Modelo</option>
+                <option value="Modelo S">Model S</option>
+                <option value="Modelo 3">Model 3</option>
+                <option value="Modelo X">Model X</option>
+                <option value="Modelo Y">Model Y</option>
+            </select>
+        </div>
           <div class="user-box">
-            <input type="text" name="" required="" id="ipt_modelo_carro">
-            <label>Modelo do Carro</label>
-          </div>
-          <div class="user-box">
-            <input type="text" name="" required="" id="ipt_placa_carro">
+            <input type="text" name="" required="" id="ipt_versao_software">
             <label>Placa do Carro</label>
           </div>
           
@@ -50,10 +51,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script src="assets/js/cadastroCarro.js"></script>  
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
 </style>
-
-
