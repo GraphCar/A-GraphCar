@@ -17,31 +17,20 @@ toastr.options = {
   }
 
 function cadastrar(){
-    var nomeMotorista = ipt_nome_piloto.value;
     var modeloCarro = ipt_modelo_carro.value;
-    var placaCarro = ipt_placa_carro.value;
+    var softwareCarro = ipt_versao_software.value;
     
     var verificacao = true;
 
-    if (nomeMotorista == '') {
-        toastr.error("<b style='font-family: arial;'> Insira um nome válido</b>")
-        verificacao = false
-    } else if (nomeMotorista.length < 4) {
-        toastr.error("<b style='font-family: arial;'> Insira um nome válido</b>")
-        verificacao = false
-    }
-    if (modeloCarro == '') {
-        toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
-        verificacao = false
-    } else if (modeloCarro.length < 7) {
+    if (modeloCarro == 'default') {
         toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
         verificacao = false
     }
-    if (placaCarro == '') {
-        toastr.error("<b style='font-family: arial;'> Insira uma placa válida</b>")
+    if (softwareCarro == '') {
+        toastr.error("<b style='font-family: arial;'> Insira uma versão de software válida</b>")
         verificacao = false
-    } else if (placaCarro.length < 7 || placaCarro.length > 12) {
-        toastr.error("<b style='font-family: arial;'> Insira uma placa válida</b>")
+    } else if (softwareCarro.length < 7) {
+        toastr.error("<b style='font-family: arial;'> Insira uma versão de software válida</b>")
         verificacao = false
     }
 
@@ -54,9 +43,8 @@ function cadastrar(){
         },
         body: JSON.stringify({
 
-        nomeServer: nomeMotorista,
         modeloServer: modeloCarro,
-        placaServer: placaCarro,
+        softwareServer: softwareCarro,
         }),
     })
         .then(function (resposta) {
