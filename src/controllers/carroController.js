@@ -1,17 +1,14 @@
 function cadastrarCarro(req, res) {
-    var nomeMotorista = req.body.nomeServer;
     var modeloCarro = req.body.modeloServer;
-    var placaCarro = req.body.placaServer;
+    var softwareCarro = req.body.softwareServer;
 
-    if (nomeMotorista == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+    if (softwareCarro == undefined) {
+        res.status(400).send("Seu software está undefined!");
     } else if (modeloCarro == undefined) {
         res.status(400).send("Seu modelo está undefined!");
-    } else if (placaCarro == undefined) {
-        res.status(400).send("Sua placa está undefined!");
     } else {
 
-        carroModel.cadastrarCarro(nomeMotorista, modeloCarro, placaCarro)
+        carroModel.cadastrarCarro(modeloCarro, softwareCarro)
             .then(
                 function (resultado) {
                     res.json(resultado);

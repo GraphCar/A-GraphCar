@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/img/Background-cadastro-carro.png');
+    background-image: url('/public/assets/img/Background-cadastro-carro.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -74,6 +74,26 @@ header {
     color: #fff;
     pointer-events: none;
     transition: .5s;
+  }
+
+  .login-box .user-box select {
+    appearance: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    background: transparent;
+    background-color: transparent;
+    font-style: normal;
+  }
+
+  .login-box .user-box select:focus {
+    background: transparent;
+    color: #cc1616;
   }
   
   .login-box .user-box input:focus ~ label,
