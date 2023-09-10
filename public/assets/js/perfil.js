@@ -233,6 +233,7 @@ function inicio() {
 function sair() {
     delete localStorage.ID_USUARIO;
     delete localStorage.ID_MODELO;
+    delete localStorage.REDIRECIONAMENTO;
 
     window.location = "./login.html";
 }

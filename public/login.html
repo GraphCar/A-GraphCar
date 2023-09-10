@@ -57,10 +57,11 @@
 <script>
     var idUsuario = localStorage.ID_USUARIO;
     var idModelo = localStorage.ID_MODELO;
+    var redirecionamento = localStorage.REDIRECIONAMENTO;
 
     if (idModelo != undefined && idUsuario != undefined) {
 
-        window.location = "perfil.html";
+        window.location = redirecionamento;
 
     } else {
 
@@ -128,11 +129,11 @@
                             
                             localStorage.ID_MODELO = json.idModelo;
                             localStorage.ID_USUARIO = json.idUsuario;
+                            localStorage.REDIRECIONAMENTO = json.Redirecionamento;
+
                             // localStorage.EMAIL_USUARIO = json.emailUsuario;
                             // localStorage.SENHA_USUARIO = json.senhaServer;
                             
-                           console.log("bbbbbbbbbbbbbbbbb",json)
-
                             window.location=json.Redirecionamento;
 
                         });
