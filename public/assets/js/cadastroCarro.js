@@ -56,6 +56,9 @@ function cadastrar(){
         if (resposta.ok) {
             toastr.success("<b style='font-family: arial;'> Cadastro bem sucedido!</b>");
 
+            setTimeout(() => {
+                window.location = "perfil.html";
+            }, "3000")
         } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
         }
