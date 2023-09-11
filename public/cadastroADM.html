@@ -88,7 +88,7 @@
 
     var nome = ipt_nome_adm.value;
     var email = ipt_email_adm.value;
-    var cpf = ipt_cpf_adm.value;
+    var cpf = ipt_cpf_adm.value.replaceAll('.', '').replace('-', '');
     var senha = ipt_senha_adm.value;
     var confirmSenha = ipt_confirm_senha_adm.value;
     var verificacao = true;
