@@ -22,7 +22,10 @@ function cadastrar(){
     
     var verificacao = true;
 
-    if (modeloCarro == 'default') {
+    if (modeloCarro == '') {
+        toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
+        verificacao = false
+    } else if (modeloCarro.length < 2) {
         toastr.error("<b style='font-family: arial;'> Insira um modelo válido</b>")
         verificacao = false
     }
