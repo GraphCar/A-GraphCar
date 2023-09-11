@@ -54,17 +54,8 @@ function cadastrar(){
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            cardErro.style.display = "block";
+            toastr.success("<b style='font-family: arial;'> Cadastro bem sucedido!</b>");
 
-            mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Perfil...";
-
-            setTimeout(() => {
-            window.location = "perfil.html";
-            }, "2000");
-
-            limparFormulario();
-            finalizarAguardar();
         } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
         }

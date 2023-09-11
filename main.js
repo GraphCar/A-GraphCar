@@ -13,6 +13,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/Usuarios");
 var motoristaRouter = require("./src/routes/Motorista");
 var perfilRouter = require("./src/routes/Perfil");
+var carroRouter = require("./src/routes/Carro")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +25,7 @@ app.use("/", indexRouter);
 app.use("/Usuarios", usuarioRouter);
 app.use("/Motorista", motoristaRouter);
 app.use("/Perfil", perfilRouter);
+app.use("/Carro", carroRouter);
 
 const ipAddress = IP.address();
 
