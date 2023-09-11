@@ -7,9 +7,10 @@ function exibirPerfil(idUsuario) {
             idUsuario, 
             nome,
             foto
-            FROM usuario u JOIN Carro c JOIN ModeloCarro mc 
-            on c.fkModelo = mc.idModelo AND 
-            idUsuario = fkUsuario WHERE idUsuario = ${idUsuario};
+            FROM usuario u 
+            JOIN Carro ON carro.fkUsuario = u.idUsuario
+            JOIN ModeloCarro ON carro.fkModelo = modeloCarro.idModelo
+            WHERE idUsuario = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
