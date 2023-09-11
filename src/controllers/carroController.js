@@ -3,6 +3,7 @@ var carroModel = require("../models/carroModel");
 function cadastrarCarro(req, res) {
     var modeloCarro = req.body.modeloServer;
     var softwareCarro = req.body.softwareServer;
+    var listaComponentes = req.body.listaComponentesServer;
 
     if (softwareCarro == undefined) {
         res.status(400).send("Seu software está undefined!");
@@ -13,6 +14,12 @@ function cadastrarCarro(req, res) {
         carroModel.cadastrarCarro(modeloCarro, softwareCarro)
             .then(
                 function (resultado) {
+                    console.log(resultado)
+                    idModelo = resultado.insertId;
+
+                    listaComponentes.forEach(idComponente => {
+                        carroModel.inserirModeloComponente(idModelo , idComponente)
+                    });
                     res.json(resultado);
                 }
             ).catch(

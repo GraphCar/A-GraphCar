@@ -19,7 +19,22 @@ toastr.options = {
 function cadastrar(){
     var modeloCarro = ipt_modelo_carro.value;
     var softwareCarro = ipt_versao_software.value;
-    
+    var listaComponentes =[];
+
+    if(chck_cpu.checked){
+        listaComponentes.push(1);
+        
+    } 
+    if(chck_ram.checked){
+        listaComponentes.push(2);
+    }
+    if(chck_disco.checked){
+        listaComponentes.push(3);
+    }
+    if(chck_gpu.checked){
+        listaComponentes.push(4);
+    }
+
     var verificacao = true;
 
     if (modeloCarro == '') {
@@ -48,6 +63,7 @@ function cadastrar(){
 
         modeloServer: modeloCarro,
         softwareServer: softwareCarro,
+        listaComponentesServer: listaComponentes
         }),
     })
         .then(function (resposta) {

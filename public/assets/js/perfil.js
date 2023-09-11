@@ -165,65 +165,65 @@ function exibirCarro(idUsuario) {
 
 
 
-function exibirConfgCarro(idModelo) {
+// function exibirConfgCarro(idModelo) {
 
-    fetch(`/Perfil/exibirConfgCarro/${idModelo}`).then(function (resposta) {
-        if (resposta.ok) {
+//     fetch(`/Perfil/exibirConfgCarro/${idModelo}`).then(function (resposta) {
+//         if (resposta.ok) {
 
-            resposta.json().then(function (resposta) {
-                // console.log("Dados recebidos: ", JSON.stringify(resposta));
+//             resposta.json().then(function (resposta) {
+//                 // console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                cpu = resposta[0];
-                memoria = resposta[1];
-                HD = resposta[2];
-                gpu = resposta[3];
+//                 cpu = resposta[0];
+//                 memoria = resposta[1];
+//                 HD = resposta[2];
+//                 gpu = resposta[3];
 
-                var CPU = document.getElementById("CPU");
-                CPU.innerHTML = cpu.descricao;
-                var GPU = document.getElementById("GPU");
-                GPU.innerHTML = gpu.descricao;
-                var RAM = document.getElementById("memoria");
-                RAM.innerHTML = memoria.descricao;
-                var armazenamento = document.getElementById("HD");
-                armazenamento.innerHTML = HD.descricao;
+//                 var CPU = document.getElementById("CPU");
+//                 CPU.innerHTML = cpu.descricao;
+//                 var GPU = document.getElementById("GPU");
+//                 GPU.innerHTML = gpu.descricao;
+//                 var RAM = document.getElementById("memoria");
+//                 RAM.innerHTML = memoria.descricao;
+//                 var armazenamento = document.getElementById("HD");
+//                 armazenamento.innerHTML = HD.descricao;
 
 
-                if (aparece) {
+//                 if (aparece) {
 
-                    hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
-                    controle.style = "width: 10%";
-                    hamburguer.style = "width: 100%;";
-                    nomeUsuario.style = "display: none;";
-                    nomeUsuario.style = "display: none;";
-                    interacao.style = "display: none;";
-                    dadosGerais.style = "width: 90%;";
+//                     hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
+//                     controle.style = "width: 10%";
+//                     hamburguer.style = "width: 100%;";
+//                     nomeUsuario.style = "display: none;";
+//                     nomeUsuario.style = "display: none;";
+//                     interacao.style = "display: none;";
+//                     dadosGerais.style = "width: 90%;";
             
-                    dCadastro.style = "display: none;";
-                    dCarro.style = "display: none;";
-                    confgCarro.style = "display: flex;";
+//                     dCadastro.style = "display: none;";
+//                     dCarro.style = "display: none;";
+//                     confgCarro.style = "display: flex;";
             
-                    aparece = false
+//                     aparece = false
             
-                } else {
+//                 } else {
             
-                    dCadastro.style = "display: none;";
-                    dCarro.style = "display: none;";
-                    confgCarro.style = "display: flex;";
+//                     dCadastro.style = "display: none;";
+//                     dCarro.style = "display: none;";
+//                     confgCarro.style = "display: flex;";
             
-                }
+//                 }
 
-            });
+//             });
 
-        } else {
-            throw ('Houve um erro na API!');
-        }
+//         } else {
+//             throw ('Houve um erro na API!');
+//         }
 
-    }).catch(function (resposta) {
-        console.error(resposta);
+//     }).catch(function (resposta) {
+//         console.error(resposta);
 
-    });
+//     });
 
-}
+// }
 
 function inicio() {
 
