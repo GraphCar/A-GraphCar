@@ -1,3 +1,5 @@
+var carroModel = require("../models/carroModel");
+
 function cadastrarCarro(req, res) {
     var modeloCarro = req.body.modeloServer;
     var softwareCarro = req.body.softwareServer;
@@ -24,4 +26,8 @@ function cadastrarCarro(req, res) {
                 }
             );
     }
+}
+
+module.exports = {
+    cadastrarCarro,
 }
