@@ -73,7 +73,7 @@ function cadastrar(){
             toastr.success("<b style='font-family: arial;'> Cadastro bem sucedido!</b>");
 
             setTimeout(() => {
-                window.location = "perfil.html";
+                window.location = "login.html";
             }, "3000")
         } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
