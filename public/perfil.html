@@ -28,6 +28,7 @@
                 <button class="botao" onclick="dadosCadastro(idUsuario)">Dados de cadastro</button>
                 <button class="botao" onclick="exibirCarro(idUsuario)">Dados do carro</button>
                 <!-- <button class="botao" onclick="exibirConfgCarro(idModelo)">Configurações do carro</button> -->
+                <button class="botao" onclick="personalizar()">Personalizar</button>
                 <button class="botao" onclick="inicio()">Início</button>
                 <button class="sair" onclick="sair()">Sing-up</button>
             </div>
@@ -63,6 +64,21 @@
                 <div class="linha">
                     <h1>Modelo</h1>
                     <p id="modeloCarro"></p>
+                </div>
+
+            </div>
+
+            <div id="dPersonalizar">
+
+                <div class="linha">
+                    <h1>Alterar foto</h1>
+                    <input type="file" id="foto">
+                    <button onclick="mudarFoto(idUsuario)">Alterar</button>
+                </div>
+                <div class="linha">
+                    <h1>Alterar nome</h1>
+                    <input type="text">
+                    <button>Alterar</button>
                 </div>
 
             </div>

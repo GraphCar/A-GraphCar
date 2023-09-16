@@ -1,9 +1,3 @@
-var planoVar = new URLSearchParams(window.location.search).get("p");
-
-if (planoVar < 1) {
-    window.location = "index.html"
-}
-
 function modelos() {
     fetch(`/Motorista/mostrarModelos`).then(function (resposta) {
         if (resposta.ok) {
@@ -105,7 +99,6 @@ function cadastrar() {
                 cpfServer: cpfVar,
                 placaServer: placaVar,
                 modeloServer: modeloVar,
-                planoServer: planoVar,
             })
         }).then(function (resposta) {
             console.log("resposta: ", resposta);
@@ -115,6 +108,7 @@ function cadastrar() {
                 ipt_email.value = '';
                 ipt_senha.value = '';
                 ipt_confirmarSenha.value = '';
+                
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
