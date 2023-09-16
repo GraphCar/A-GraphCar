@@ -70,8 +70,7 @@ function alterarFoto(req, res) {
     
     perfilModel.alterarFoto(idUsuario, imagem)
     .then(resultado => {
-      res.status(201).send("Foto alterada com sucesso");
-      res.json(resultado);
+      res.status(200).json(resultado);
     }).catch(err => {
       res.status(500).send(err);
     });
