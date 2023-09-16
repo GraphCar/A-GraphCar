@@ -225,6 +225,22 @@ function exibirCarro(idUsuario) {
 
 // }
 
+function mudarFoto(idUsuario) {
+    const formData = new FormData();
+    formData.append('foto', foto.files[0])
+
+    fetch(`/Perfil/alterarFoto/${idUsuario}`, {
+      method: "POST",
+      body: formData
+    })
+      .then(res => {
+        carregarPagina(idUsuario);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
 function inicio() {
 
     window.location = "index.html";
@@ -237,3 +253,4 @@ function sair() {
 
     window.location = "./login.html";
 }
+

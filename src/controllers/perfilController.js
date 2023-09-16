@@ -64,9 +64,23 @@ function exibirConfgCarro(req, res) {
     });
 }
 
+function alterarFoto(req, res) {
+    const imagem = req.file.filename;
+    var idUsuario = req.params.idUsuario;
+    
+    perfilModel.alterarFoto(idUsuario, imagem)
+    .then(resultado => {
+      res.status(201).send("Foto alterada com sucesso");
+      res.json(resultado);
+    }).catch(err => {
+      res.status(500).send(err);
+    });
+}
+
 module.exports = {
     exibirPerfil,
     exibirCadastro,
     exibirCarro,
-    exibirConfgCarro
+    exibirConfgCarro,
+    alterarFoto
 }
