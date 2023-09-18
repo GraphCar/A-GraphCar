@@ -239,6 +239,40 @@ function mudarFoto(idUsuario) {
       .catch(err => {
         console.log(err);
       })
+}
+
+  function mudarNome(idUsuario) {
+    var nomeNovo = nome.value;
+
+    fetch(`/Perfil/alterarNome/${idUsuario}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: nomeNovo
+      })
+    })
+      .then(
+        function (resposta) {
+            console.log(resposta);
+
+            if (resposta.ok) {
+                info = resposta[0]
+                carregarPagina(idUsuario);
+                nome.value = "";
+            }
+            else if (resposta.status == 404) {
+                window.alert("deu 404");
+            }
+            else {
+                throw("houve um erro" + resposta.status)
+            }
+      })
+      .catch(
+        function (resposta) {
+        console.log("erro");
+      })
   }
 
 function inicio() {
