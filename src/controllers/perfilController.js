@@ -80,7 +80,7 @@ function alterarNome(req, res) {
     var nome = req.body.nome;
     var idUsuario = req.params.idUsuario;
     
-    perfilModel.alterarNome(nome, idUsuario)
+    perfilModel.alterarNome(idUsuario, nome)
     .then(
         function (resultado) {
             res.json(resultado);

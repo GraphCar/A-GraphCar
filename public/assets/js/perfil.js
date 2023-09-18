@@ -260,7 +260,7 @@ function mudarFoto(idUsuario) {
             if (resposta.ok) {
                 info = resposta[0]
                 carregarPagina(idUsuario);
-                nomeNovo = '';
+                nome.value = "";
             }
             else if (resposta.status == 404) {
                 window.alert("deu 404");
