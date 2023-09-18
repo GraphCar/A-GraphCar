@@ -54,7 +54,18 @@ function exibirConfgCarro(idModelo) {
 
 function alterarFoto(idUsuario, foto) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function exibirPerfil()");
-    var instrucao = `UPDATE usuario SET foto = '${foto}' WHERE idUsuario = ${idUsuario};`;
+    var instrucao = `
+        UPDATE usuario SET foto = '${foto}' WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function alterarNome(idUsuario, nome) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function exibirPerfil()");
+    var instrucao = `
+        UPDATE usuario SET nome = '${nome}' WHERE idUsuario = ${idUsuario};
+    `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -64,5 +75,6 @@ module.exports = {
     exibirCadastro,
     exibirCarro,
     exibirConfgCarro,
-    alterarFoto
+    alterarFoto,
+    alterarNome
 }

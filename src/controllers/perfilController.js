@@ -76,10 +76,27 @@ function alterarFoto(req, res) {
     });
 }
 
+function alterarNome(req, res) {
+    var nome = req.body.nome;
+    var idUsuario = req.params.idUsuario;
+    
+    perfilModel.alterarNome(nome, idUsuario)
+    .then(
+        function (resultado) {
+            res.json(resultado);
+    }).catch(
+        function(erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     exibirPerfil,
     exibirCadastro,
     exibirCarro,
     exibirConfgCarro,
-    alterarFoto
+    alterarFoto,
+    alterarNome
 }

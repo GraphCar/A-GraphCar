@@ -23,4 +23,8 @@ router.post('/alterarFoto/:idUsuario', upload.single('foto'), (req, res) => {
     perfilController.alterarFoto(req, res);
 });
 
+router.post('/alterarNome/:idUsuario', function (req, res) {
+    perfilController.alterarNome(req, res);
+});
+
 module.exports = router;
