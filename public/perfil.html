@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GraphCar</title>
 
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/perfil.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/loader.css">
-    <link rel="stylesheet" href="assets/css/perfi.css">
 
     <link href="./assets/img/favicon.png" rel="icon">
     <link href="assets/img/favicon.png" rel="apple-touch-icon">
-
 </head>
 
 <body>
-
     <div class="main">
-        <div class="controle" id="controle">
+        <div class="left-bar" id="controle">
+            <div class="div-logo">
+                <h1>G R A P H C A R</h1>
+            </div>
             <div class="usuario">
                 <button id="hamburguer" onclick="mostrarControle()"><img src="assets/img/Hamburger_icon.png"></button>
                 <img src="" class="foto" id="usuarioFoto">
-                <h2 id="nomeUsuario"></h2>
+                <div class="nome-user">
+                    <h1 id="nomeUsuario"></h1>
+                </div>
             </div>
-            <div class="interacao" id="interacao">
-                <button class="botao" onclick="dadosCadastro(idUsuario)">Dados de cadastro</button>
-                <button class="botao" onclick="exibirCarro(idUsuario)">Dados do carro</button>
-                <!-- <button class="botao" onclick="exibirConfgCarro(idModelo)">Configurações do carro</button> -->
-                <button class="botao" onclick="personalizar()">Personalizar</button>
-                <button class="botao" onclick="inicio()">Início</button>
-                <button class="sair" onclick="sair()">Sing-up</button>
+            <div class="container-option" id="interacao">
+                <button class="container">Histórico</button>
+                <button class="container" onclick="dadosCadastro(idUsuario)">Dados do Usuário</button>
+                <button class="container" onclick="exibirCarro(idUsuario)">Dados do Veículo</button>
+                <button class="container" onclick="personalizar()">Personalizar</button>
+                <button class="container-sair" onclick="sair()">Sair</button>
             </div>
         </div>
         <div class="dados" id="dadosGerais">
             <div id="dCadastro">
-
                 <div class="linha">
                     <h1>Nome</h1>
                     <p id="nomeCadastro"></p>
@@ -52,11 +54,9 @@
                     <h1>Plano</h1>
                     <p id="planoCadastro"></p>
                 </div>
-
             </div>
 
             <div id="dCarro">
-
                 <div class="linha">
                     <h1>Placa</h1>
                     <p id="placaCarro"></p>
@@ -65,11 +65,9 @@
                     <h1>Modelo</h1>
                     <p id="modeloCarro"></p>
                 </div>
-
             </div>
 
             <div id="dPersonalizar">
-
                 <div class="linha">
                     <h1>Alterar foto</h1>
                     <input type="file" id="foto" accept="image/*" />
@@ -80,7 +78,6 @@
                     <input type="text" id="nome">
                     <button onclick="mudarNome(idUsuario)">Alterar</button>
                 </div>
-
             </div>
 
             <!-- <div id="confgCarro">
@@ -108,6 +105,9 @@
 </body>
 
 </html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+</style>
 <script src="assets/js/perfil.js"></script>
 
 <script>
@@ -122,5 +122,4 @@
 
         carregarPagina(idUsuario)
     }
-
 </script>

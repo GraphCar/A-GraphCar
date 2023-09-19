@@ -79,14 +79,14 @@ function dadosCadastro(idUsuario) {
                     controle.style = "width: 10%";
                     hamburguer.style = "width: 100%;";
                     nomeUsuario.style = "display: none;";
-                    nomeUsuario.style = "display: none;";
                     interacao.style = "display: none;";
                     dadosGerais.style = "width: 90%;";
 
 
                     dCadastro.style = "display: flex;";
                     dCarro.style = "display: none;";
-                    confgCarro.style = "display: none;";
+                    dPersonalizar.style = "display: none;";
+                    // confgCarro.style = "display: none;";
 
 
                     aparece = false
@@ -95,7 +95,8 @@ function dadosCadastro(idUsuario) {
 
                     dCadastro.style = "display: flex;";
                     dCarro.style = "display: none;";
-                    confgCarro.style = "display: none;";
+                    dPersonalizar.style = "display: none;";
+                    // confgCarro.style = "display: none;";
 
                 }
             });
@@ -139,7 +140,8 @@ function exibirCarro(idUsuario) {
 
                     dCadastro.style = "display: none;";
                     dCarro.style = "display: flex;";
-                    confgCarro.style = "display: none;";
+                    dPersonalizar.style = "display: none;";
+                    // confgCarro.style = "display: none;";
 
                     aparece = false
 
@@ -147,7 +149,8 @@ function exibirCarro(idUsuario) {
 
                     dCadastro.style = "display: none;";
                     dCarro.style = "display: flex;";
-                    confgCarro.style = "display: none;";
+                    dPersonalizar.style = "display: none;";
+                    // confgCarro.style = "display: none;";
 
                 }
 
@@ -162,7 +165,6 @@ function exibirCarro(idUsuario) {
 
     });
 }
-
 
 
 // function exibirConfgCarro(idModelo) {
@@ -224,6 +226,36 @@ function exibirCarro(idUsuario) {
 //     });
 
 // }
+
+
+function personalizar() {
+    if (aparece) {
+
+        hamburguer.innerHTML = '<img src="assets/img/Hamburger_icon.png">';
+        controle.style = "width: 10%";
+        hamburguer.style = "width: 100%;";
+        nomeUsuario.style = "display: none;";
+        nomeUsuario.style = "display: none;";
+        interacao.style = "display: none;";
+        dadosGerais.style = "width: 90%;";
+
+        dCadastro.style = "display: none;";
+        dCarro.style = "display: none;";
+        dPersonalizar.style = "display: flex;";
+        // confgCarro.style = "display: none;";
+
+        aparece = false
+
+    } else {
+
+        dCadastro.style = "display: none;";
+        dCarro.style = "display: none;";
+        dPersonalizar.style = "display: flex;";
+        // confgCarro.style = "display: none;";
+
+    }
+}
+
 
 function mudarFoto(idUsuario) {
     const formData = new FormData();
