@@ -15,5 +15,5 @@ git clone --recurse-submodules https://github.com/GraphCar/A-GraphCar.git
 git submodule update --init --recursive
 ```
 ```
-git submodule foreach "(git checkout main; git pull)"
 ```
+git submodule foreach "(git checkout main; git pull)"
