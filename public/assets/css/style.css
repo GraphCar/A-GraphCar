@@ -1065,6 +1065,19 @@ section {
   background: #e82d2d;
 }
 
+.btn-contact{
+  background: #cc1616;
+  display: inline-block;
+  padding: 10px 40px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;  
+}
+
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
