@@ -1281,3 +1281,15 @@ section {
     margin: -20px 0 30px 0;
   }
 }
+
+.imgProduto{
+  width: 14vh;
+  margin: 0px;
+  margin-bottom: 27px;
+}
+
+.imgProduto2{
+  width: 9vh;
+  margin-top: -14px;
+  margin-bottom: 16px;
+}
