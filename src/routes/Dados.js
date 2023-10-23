@@ -19,4 +19,8 @@ router.get("/alertasConcatenados", function (req, res) {
     dadosController.alertasConcatenados(req, res);
 });
 
+router.get("/metasDashboard", function(req, res) {
+    dadosController.metasDashboard(req, res);
+});
+
 module.exports = router;

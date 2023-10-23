@@ -61,8 +61,28 @@ function alertasConcatenados(req, res) {
         );
     }
 
+function metasDashboard(req, res) {
+    dadosModel.metasDashboard()
+        .then(
+            function (resultado) {
+                console.log(resultado)
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     alertasGerais,
     alertasUltimoMes,
-    alertasConcatenados
+    alertasConcatenados,
+    metasDashboard
 }
