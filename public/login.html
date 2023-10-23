@@ -127,9 +127,10 @@
                         resposta.json().then(json => {
                             console.log(json);
                             
-                            localStorage.ID_MODELO = json.idModelo;
-                            localStorage.ID_USUARIO = json.idUsuario;
-                            localStorage.REDIRECIONAMENTO = json.Redirecionamento;
+                            sessionStorage.ID_MODELO = json.idModelo;
+                            sessionStorage.ID_USUARIO = json.idUsuario;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.REDIRECIONAMENTO = json.Redirecionamento;
 
                             // localStorage.EMAIL_USUARIO = json.emailUsuario;
                             // localStorage.SENHA_USUARIO = json.senhaServer;

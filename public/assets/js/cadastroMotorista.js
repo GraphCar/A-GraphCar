@@ -111,7 +111,7 @@ function cadastrar() {
                 
                 setTimeout(() => {
                     window.location = "login.html";
-                }, "2000")
+                }, "100000")
             } else {
                 alert("Ocorreu algum erro")
             }

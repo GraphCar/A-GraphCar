@@ -15,4 +15,8 @@ router.get("/alertasUltimoMes", function (req, res) {
     dadosController.alertasUltimoMes(req, res);
 });
 
+router.get("/alertasConcatenados", function (req, res) {
+    dadosController.alertasConcatenados(req, res);
+});
+
 module.exports = router;
