@@ -10,6 +10,7 @@ function alertasGerais() {
     return database.executar(instrucao);
 }
 
+
 function alertasUltimoMes() {
     console.log("ACESSEI O Dados MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alertasUltimoMes():");
     
@@ -40,9 +41,20 @@ function metasDashboard() {
     return database.executar(instrucao);
 }
 
+function listarNotificacoes(){
+    console.log("Estou no dadosModel, listando notificações")
+
+    var instrucao = `
+        SELECT * FROM alerta_atual;
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao); 
+    return database.executar(instrucao);
+}
+
 module.exports={
     alertasGerais,
     alertasUltimoMes,
     alertasConcatenados,
-    metasDashboard
+    metasDashboard,
+    listarNotificacoes
 }

@@ -11,6 +11,10 @@ router.get("/alertasGerais", function (req, res) {
     dadosController.alertasGerais(req, res);
 });
 
+router.get("/listarNotificacoes", function (req, res) {
+    dadosController.listarNotificacoes(req, res);
+});
+
 router.get("/alertasUltimoMes", function (req, res) {
     dadosController.alertasUltimoMes(req, res);
 });
