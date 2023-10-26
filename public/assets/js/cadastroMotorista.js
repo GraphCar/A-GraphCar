@@ -35,48 +35,88 @@ function cadastrar() {
 
     // Inicio Validação
     if (nomeVar.length < 3) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'O nome deve ter mais de 2 letras'
+          })
         ipt_nome.style = 'border-color: red';
         erroCadastro = true;
     } else {
         ipt_nome.style = 'border-color: none';
     }
     if (cpfVar.length != 11) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'O cpf deve ter 11 dígitos'
+          })
         ipt_cpf.style = 'border-color: red';
         erroCadastro = true;
     } else {
         ipt_cpf.style = 'border-color: none';
     }
     if (placaVar.length < 3) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'A placa deve ter mais de 2 dígitos'
+          })
         ipt_placa.style = 'border-color: red';
         erroCadastro = true;
     } else {
         ipt_placa.style = 'border-color: none';
     }
     if (emailVar.indexOf('@') < 0 && emailVar.indexOf('.com') < 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'O email deve ter @ e .com'
+          })
         ipt_email.style = 'border-color: red';
         erroCadastro = true;;
     } else {
         ipt_email.style = 'border-color: none';
     }
     if (senhaVar.length < 6) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'A senha deve ter mais de 5 dígitos'
+          })
         ipt_senha.style = 'border-color: red';
         erroCadastro = true;;
     } else {
         ipt_senha.style = 'border-color: none';
     }
     if (confirmarSenhaVar != senhaVar) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'As senhas estão diferentes'
+          })
         ipt_confirmarSenha.style = 'border-color: red';
         erroCadastro = true;
     } else {
         ipt_confirmarSenha.style = 'border-color: none';
     }
     if (confirmarSenhaVar == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Insira a senha'
+          })
         ipt_confirmarSenha.style = 'border-color: red';
         erroCadastro = true;
     } else {
         ipt_confirmarSenha.style = 'border-color: none';
     }
     if(modeloVar == 'default'){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Insira o modelo do carro'
+          })
         ipt_modelo.style = 'border-color: red';
         erroCadastro = true;
     }
@@ -86,6 +126,11 @@ function cadastrar() {
         return false;
     }
     else {
+        Swal.fire(
+            'Good job!',
+            'Motorista cadastrado com sucesso !!!',
+            'success'
+          )
         // Enviando o valor da nova input
         fetch("/Motorista/cadastrarMotorista", {
             method: "POST",
