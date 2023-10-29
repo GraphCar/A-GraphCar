@@ -21,12 +21,20 @@ function alertasUltimoMes() {
     return database.executar(instrucao);
 }
 
-function alertasConcatenados() {
-    console.log("ACESSEI O Dados MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alertasConcatenados():");
+function alertasConcatenados(idModelo) {
+    console.log(`ACESSEI O Dados MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alertasConcatenados(${idModelo}):`);
 
-    var instrucao = `
-        SELECT * FROM alertas_concatenados;
-    `
+    if (idModelo == 0) {
+        var instrucao = `
+            SELECT * FROM alertas_concatenados ac INNER JOIN Carro c ON c.idCarro =  ac.fkCarro;
+        `
+    } else {
+        var instrucao = `
+            SELECT * FROM alertas_concatenados ac INNER JOIN Carro c ON c.idCarro =  ac.fkCarro WHERE c.fkModelo = ${idModelo};
+        `
+    }
+
+    
     console.log('Executando a instrução SQL: \n' + instrucao);
     return database.executar(instrucao);
 }
@@ -37,6 +45,24 @@ function metasDashboard() {
     var instrucao = `
         SELECT * FROM metas_dashboard;
     `
+    console.log('Executando a instrução SQL: \n' + instrucao);
+    return database.executar(instrucao);
+}
+
+function quantidadeCarros(idModelo) {
+    console.log(`ACESSEI O Dados MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function quantidadeCarros(${idModelo}):`);
+
+    if (idModelo == 0) {
+        var instrucao = `
+            SELECT COUNT(idCarro) AS count_carro FROM Carro;
+        `
+    } else {
+        var instrucao = `
+            SELECT COUNT(idCarro) AS count_carro FROM Carro WHERE fkModelo = ${idModelo};
+        `
+    }
+
+    
     console.log('Executando a instrução SQL: \n' + instrucao);
     return database.executar(instrucao);
 }
@@ -56,5 +82,6 @@ module.exports={
     alertasUltimoMes,
     alertasConcatenados,
     metasDashboard,
+    quantidadeCarros,
     listarNotificacoes
 }

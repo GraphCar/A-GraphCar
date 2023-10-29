@@ -19,12 +19,16 @@ router.get("/alertasUltimoMes", function (req, res) {
     dadosController.alertasUltimoMes(req, res);
 });
 
-router.get("/alertasConcatenados", function (req, res) {
+router.get("/alertasConcatenados/:idModelo", function (req, res) {
     dadosController.alertasConcatenados(req, res);
 });
 
 router.get("/metasDashboard", function(req, res) {
     dadosController.metasDashboard(req, res);
 });
+
+router.get("/quantidadeCarros/:idModelo", function (req, res) {
+    dadosController.quantidadeCarros(req, res);
+})
 
 module.exports = router;

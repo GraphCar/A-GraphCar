@@ -45,7 +45,14 @@ function alertasUltimoMes(req, res) {
 
 function alertasConcatenados(req, res) {
 
-    dadosModel.alertasConcatenados()
+    modelo = req.params.idModelo;
+    if (modelo == "-") {
+        modelo = 0;
+    } else {
+        modelo = Number(modelo);
+    }
+
+    dadosModel.alertasConcatenados(modelo)
         .then(
             function (resultado) {
                 console.log(resultado)
@@ -82,6 +89,33 @@ function metasDashboard(req, res) {
         );
 }
 
+function quantidadeCarros(req, res) {
+    modelo = req.params.idModelo;
+    if (modelo == "-") {
+        modelo = 0;
+    } else {
+        modelo = Number(modelo);
+    }
+
+    dadosModel.quantidadeCarros(modelo)
+    .then(
+        function (resultado) {
+            console.log(resultado)
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao buscar os dados! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+
+}
+
 function listarNotificacoes(req, res) {
 
     dadosModel.listarNotificacoes()
@@ -107,5 +141,6 @@ module.exports = {
     alertasUltimoMes,
     alertasConcatenados,
     metasDashboard,
+    quantidadeCarros,
     listarNotificacoes
 }
