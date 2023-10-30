@@ -15,7 +15,7 @@ var motoristaRouter = require("./src/routes/Motorista");
 var perfilRouter = require("./src/routes/Perfil");
 var carroRouter = require("./src/routes/Carro");
 var dadosRouter = require("./src/routes/Dados");
-// var tabletRouter = require("./src/routes/Tablet");
+var tabletRouter = require("./src/routes/Tablet");
 
 
 app.use(express.json());
@@ -30,7 +30,7 @@ app.use("/Motorista", motoristaRouter);
 app.use("/Perfil", perfilRouter);
 app.use("/Carro", carroRouter);
 app.use("/Dados", dadosRouter);
-// app.use("/Tablet", tabletRouter);
+app.use("/Tablet", tabletRouter);
 
 
 const ipAddress = IP.address();
