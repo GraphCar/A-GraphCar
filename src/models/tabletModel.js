@@ -20,7 +20,18 @@ function exibirGPU() {
     return database.executar(instrucaoSql);
 }
 
+function exibirBateria() {
+
+    var instrucaoSql = ''
+
+    instrucaoSql = `select bateriaNivel from dados order by idDados desc limit 1;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     exibirCPU,
-    exibirGPU
+    exibirGPU,
+    exibirBateria
 }

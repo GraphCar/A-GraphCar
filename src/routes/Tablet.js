@@ -11,4 +11,8 @@ router.get("/exibirGPU", function (req, res) {
     tabletController.exibirGPU(req, res);
 });
 
+router.get("/exibirBateria", function (req, res) {
+    tabletController.exibirBateria(req, res);
+});
+
 module.exports = router;
