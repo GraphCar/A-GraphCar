@@ -45,9 +45,41 @@ function exibirBateria(req, res) {
     });
 }
 
+function dadosDahTemperaturaCpu(req, res) {
+
+    tabletModel.dadosDahTemperaturaCpu().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as especies.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function dataDashTemperaturaCpu(req, res) {
+
+    tabletModel.dataDashTemperaturaCpu().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as especies.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     exibirCPU,
     exibirGPU,
-    exibirBateria
+    exibirBateria,
+    dadosDahTemperaturaCpu,
+    dataDashTemperaturaCpu
 }

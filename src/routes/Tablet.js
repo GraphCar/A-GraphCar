@@ -15,4 +15,12 @@ router.get("/exibirBateria", function (req, res) {
     tabletController.exibirBateria(req, res);
 });
 
+router.get("/dadosDahTemperaturaCpu", function (req, res) {
+    tabletController.dadosDahTemperaturaCpu(req, res);
+});
+
+router.get("/dataDashTemperaturaCpu", function (req, res) {
+    tabletController.dataDashTemperaturaCpu(req, res);
+});
+
 module.exports = router;
