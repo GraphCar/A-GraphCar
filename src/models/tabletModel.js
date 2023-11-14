@@ -37,7 +37,16 @@ function dadosDahTemperaturaCpu() {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
     
-  }
+}
+
+function dadosDahTemperaturaGpu() {
+
+    const instrucaoSql = `SELECT memoria FROM dados ORDER BY dateDado DESC LIMIT 10;`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+    
+}
 
 function dataDashTemperaturaCpu() {
 
@@ -53,5 +62,6 @@ module.exports = {
     exibirGPU,
     exibirBateria,
     dadosDahTemperaturaCpu,
-    dataDashTemperaturaCpu
+    dataDashTemperaturaCpu,
+    dadosDahTemperaturaGpu
 }

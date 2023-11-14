@@ -19,6 +19,10 @@ router.get("/dadosDahTemperaturaCpu", function (req, res) {
     tabletController.dadosDahTemperaturaCpu(req, res);
 });
 
+router.get("/dadosDahTemperaturaGpu", function (req, res) {
+    tabletController.dadosDahTemperaturaGpu(req, res);
+});
+
 router.get("/dataDashTemperaturaCpu", function (req, res) {
     tabletController.dataDashTemperaturaCpu(req, res);
 });
