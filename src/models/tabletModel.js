@@ -30,6 +30,16 @@ function exibirBateria() {
     return database.executar(instrucaoSql);
 }
 
+function exibirAutonomia() {
+
+    var instrucaoSql = ''
+
+    instrucaoSql = `select bateriaTempoRestante from dados order by idDados desc limit 1;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function dadosDahTemperaturaCpu() {
 
     const instrucaoSql = `SELECT cpuUso FROM dados ORDER BY dateDado DESC LIMIT 10;`;
@@ -63,5 +73,6 @@ module.exports = {
     exibirBateria,
     dadosDahTemperaturaCpu,
     dataDashTemperaturaCpu,
-    dadosDahTemperaturaGpu
+    dadosDahTemperaturaGpu,
+    exibirAutonomia
 }
