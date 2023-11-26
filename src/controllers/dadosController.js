@@ -137,12 +137,13 @@ function listarNotificacoes(req, res) {
 }
 
 function pesquisarId(req, res) {
-    dadosModel.pesquisarId(fkCarro.value)
+    carro = req.params.fkCarro
+    dadosModel.pesquisarId(carro)
         .then(
             function (resultado) {
                 console.log(resultado)
                 res.json(resultado);
-                console.log('Fetch realizado com sucesso! Resposta: \n' + resposta);
+                console.log('Fetch realizado com sucesso! Resposta: \n' + resultado);
             }
         ).catch(
             function (erro) {
