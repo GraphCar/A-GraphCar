@@ -77,11 +77,22 @@ function listarNotificacoes(){
     return database.executar(instrucao);
 }
 
+function pesquisarId(fkCarro) {
+    console.log(`ACESSEI O Dados MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarId(${fkCarro}):`);
+    var instrucao = `
+            SELECT * FROM dados WHERE fkCarro = ${fkCarro};
+        `
+
+    console.log('Executando a instrução SQL: \n' + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports={
     alertasGerais,
     alertasUltimoMes,
     alertasConcatenados,
     metasDashboard,
     quantidadeCarros,
-    listarNotificacoes
+    listarNotificacoes,
+    pesquisarId
 }

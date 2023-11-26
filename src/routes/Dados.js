@@ -31,4 +31,7 @@ router.get("/quantidadeCarros/:idModelo", function (req, res) {
     dadosController.quantidadeCarros(req, res);
 })
 
+router.get("/pesquisarId/:fkCarro", function (req, res){
+    dadosController.pesquisarId(req, res);
+})
 module.exports = router;

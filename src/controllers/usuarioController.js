@@ -69,7 +69,9 @@ function entrar(req, res) {
                             if(result){
                                 //LOGIN APROVADO
                                 
-                                if(usuario.nivelAcesso>=3){
+                                if (usuario.nivelAcesso == 4) {
+                                    usuario["Redirecionamento"]="./D-GraphCar/template/dashboard_servers.html"
+                                } else if(usuario.nivelAcesso == 3){
                                     usuario["Redirecionamento"]="./D-GraphCar/template/index.html";
                                 } else {
                                     usuario["Redirecionamento"]="perfil.html";
