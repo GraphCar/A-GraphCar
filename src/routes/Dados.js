@@ -31,4 +31,12 @@ router.get("/quantidadeCarros/:idModelo", function (req, res) {
     dadosController.quantidadeCarros(req, res);
 })
 
+router.get("/pesquisarId/:fkCarro"), function (req, res){
+    dadosController.pesquisarId(req, res);
+}
+
+router.use(function(req, res, next) {
+    res.status(404).send("Esta rota não existe");
+});
+
 module.exports = router;

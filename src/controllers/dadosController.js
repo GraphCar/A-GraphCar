@@ -136,11 +136,32 @@ function listarNotificacoes(req, res) {
         );
 }
 
+function pesquisarId(req, res) {
+    dadosModel.pesquisarId(fkCarro.value)
+        .then(
+            function (resultado) {
+                console.log(resultado)
+                res.json(resultado);
+                console.log('Fetch realizado com sucesso! Resposta: \n' + resposta);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     alertasGerais,
     alertasUltimoMes,
     alertasConcatenados,
     metasDashboard,
     quantidadeCarros,
-    listarNotificacoes
+    listarNotificacoes,
+    pesquisarId
 }
