@@ -1,19 +1,18 @@
 var database = require("../database/config")
 
 
-function listarDados(periodo) {
+function listarDados(periodo, grupo) {
     // console.log("ACESSEI O Servidor MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDados():");
     var formato = "";
-    if (periodo == "MONTH") {
+    if (grupo == "dia") {
         formato = "DATE_FORMAT(dateDado, '%m/%d')";
-    } else if (periodo == "WEEK") {
-        formato = "DATE_FORMAT(dateDado, '%m/%d')";
-    } else if (periodo == "YEAR") {
+    } else if (grupo == "mes") {
         formato = "DATE_FORMAT(dateDado, '%Y/%m')";
-    } else if (periodo == "DAY") {
-        formato = "DATE_FORMAT(dateDado, '%m/%d %h:00')";
-    }
-
+    } else if (grupo == "hora") {
+        formato = "DATE_FORMAT(dateDado, '%m/%d %H:00')";
+    } else if (grupo == "minuto") {
+        formato = "DATE_FORMAT(dateDado, '%H:%i')";
+    } 
 
     var instrucao = `SELECT fkServidor, ${formato} AS dataFormatada,
             MIN(dateDado) AS minDateDado,
@@ -33,7 +32,34 @@ function listarTempoOcorrencias() {
     return database.executar(instrucao);
 }
 
+function listarAlertas(fkServidor) {
+    var instrucao = 'SELECT * FROM Chamado WHERE encerrado = 0';
+    if (fkServidor == "-") {
+        instrucao += ";";
+    } else {
+        instrucao += ` AND fkServidor = ${fkServidor};`;
+    }
+    return database.executar(instrucao);
+}
+
+function listarPeriodosChamados(fkServidor) {
+    var instrucao = `SELECT fkServidor, fkComponente, encerrado,
+        dataAbertura, 
+        CASE WHEN encerrado = 1 
+            THEN ultimaMensagemSlack
+            ELSE now() END AS dataFechamento
+        FROM Chamado`
+        if (fkServidor != "-") {
+            instrucao += ` WHERE fkServidor = ${fkServidor}`;
+        }
+        instrucao += " ORDER BY dataAbertura DESC;"
+
+        return database.executar(instrucao)
+};
+
 module.exports = {
     listarDados,
-    listarTempoOcorrencias
+    listarTempoOcorrencias,
+    listarAlertas,
+    listarPeriodosChamados
 }
