@@ -86,6 +86,23 @@ function pesquisarId(fkCarro) {
     console.log('Executando a instrução SQL: \n' + instrucao);
     return database.executar(instrucao);
 }
+function capturarDadosCarro(fkCarro){
+    console.log("Capturando os dados de um carro especifico")
+    var instrucao = `
+            SELECT * FROM dados WHERE fkCarro = ${fkCarro} ORDER BY dateDado DESC;
+    `
+    console.log('instrução: \n'+ instrucao)
+    return database.executar(instrucao);
+}
+
+function alertasCarro(fkCarro){
+    console.log("Alertas de um carro")
+    var instrucao = `
+            SELECT * FROM alertas_gerais_por_carro WHERE fkCarro = ${fkCarro};
+    `
+    console.log('Instrução: '+ instrucao)
+    return database.executar(instrucao);
+}
 
 module.exports={
     alertasGerais,
@@ -94,5 +111,7 @@ module.exports={
     metasDashboard,
     quantidadeCarros,
     listarNotificacoes,
-    pesquisarId
+    pesquisarId,
+    capturarDadosCarro,
+    alertasCarro
 }

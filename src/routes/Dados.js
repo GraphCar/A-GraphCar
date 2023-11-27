@@ -34,4 +34,13 @@ router.get("/quantidadeCarros/:idModelo", function (req, res) {
 router.get("/pesquisarId/:fkCarro", function (req, res){
     dadosController.pesquisarId(req, res);
 })
+
+router.get("/capturarDadosCarro/:fkCarro", function (req, res){
+    dadosController.capturarDadosCarro(req, res);
+})
+
+router.get("/alertasCarro/:fkCarro", function (req, res){
+    dadosController.alertasCarro(req, res);  
+})
+
 module.exports = router;
