@@ -31,4 +31,20 @@ router.get("/quantidadeCarros/:idModelo", function (req, res) {
     dadosController.quantidadeCarros(req, res);
 })
 
+router.get("/pesquisarId/:fkCarro", function (req, res){
+    dadosController.pesquisarId(req, res);
+})
+
+router.get("/capturarDadosCarro/:fkCarro", function (req, res){
+    dadosController.capturarDadosCarro(req, res);
+})
+
+router.get("/alertasCarro/:fkCarro", function (req, res){
+    dadosController.alertasCarro(req, res);  
+})
+
+router.get("/exibirTabelaDeCarros", function (req, res){
+    dadosController.exibirTabelaDeCarros(req, res);
+})
+
 module.exports = router;

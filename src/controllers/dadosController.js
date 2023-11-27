@@ -98,21 +98,21 @@ function quantidadeCarros(req, res) {
     }
 
     dadosModel.quantidadeCarros(modelo)
-    .then(
-        function (resultado) {
-            console.log(resultado)
-            res.json(resultado);
-        }
-    ).catch(
-        function (erro) {
-            console.log(erro);
-            console.log(
-                "\nHouve um erro ao buscar os dados! Erro: ",
-                erro.sqlMessage
-            );
-            res.status(500).json(erro.sqlMessage);
-        }
-    );
+        .then(
+            function (resultado) {
+                console.log(resultado)
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 
 }
 
@@ -136,11 +136,98 @@ function listarNotificacoes(req, res) {
         );
 }
 
+function pesquisarId(req, res) {
+    carro = req.params.fkCarro
+    dadosModel.pesquisarId(carro)
+        .then(
+            function (resultado) {
+                console.log(resultado)
+                res.json(resultado);
+                console.log('Fetch realizado com sucesso! Resposta: \n' + resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function capturarDadosCarro(req, res) {
+    carro = sessionStorage.FK_CARRO
+    dadosModel.capturarDadosCarro(carro)
+        .then(
+            function (resultado) {
+                console.log(resultado);
+                res.json(resultado);
+                console.log('Fetch realizado com sucesso! Resposta: \n' + resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function alertasCarro(req, res){
+    carro = sessionStorage.FK_CARRO
+    dadosModel.alertasCarro(carro)
+        .then(
+            function (resultado){
+                console.log(resultado);
+                res.json(resultado);
+                console.log('Fetch realizado com sucesso! Resposta: \n '+ resultado);
+            }
+        ).catch(
+            function (erro){
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                    )
+                res.status(500).json(erro.sqlmessage);
+            }
+        )
+}
+
+function exibirTabelaDeCarros(req, res){
+    dadosModel.exibirTabelaDeCarros()
+        .then(
+            function (resultado){
+                console.log(resultado)
+                res.json(resultado)
+            }
+        ).catch(
+            function (erro){
+                console.log(erro)
+                console.log(
+                    "\nHouve um erro ao buscar os dados! Erro: ",
+                    erro.sqlMessage
+                );
+
+                res.status(500).json(erro.sqlMessage)
+            }
+        )
+}
+
 module.exports = {
     alertasGerais,
     alertasUltimoMes,
     alertasConcatenados,
     metasDashboard,
     quantidadeCarros,
-    listarNotificacoes
+    listarNotificacoes,
+    pesquisarId,
+    capturarDadosCarro,
+    alertasCarro,
+    exibirTabelaDeCarros
 }

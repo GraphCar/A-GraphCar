@@ -15,6 +15,10 @@ router.get("/exibirBateria", function (req, res) {
     tabletController.exibirBateria(req, res);
 });
 
+router.get("/exibirAutonomia", function (req, res) {
+    tabletController.exibirAutonomia(req, res);
+});
+
 router.get("/dadosDahTemperaturaCpu", function (req, res) {
     tabletController.dadosDahTemperaturaCpu(req, res);
 });
