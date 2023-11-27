@@ -26,6 +26,20 @@ function listarDados(req, res) {
     }
 }
 
+function listarTempoOcorrencias(req, res) {
+    servidorModel.listarTempoOcorrencias().then(
+        function (resultado) {
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        }
+    )
+}
+
 module.exports = {
     listarDados,
+    listarTempoOcorrencias
 }

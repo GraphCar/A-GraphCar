@@ -28,6 +28,12 @@ function listarDados(periodo) {
     return database.executar(instrucao);
 }
 
+function listarTempoOcorrencias() {
+    var instrucao = "SELECT * FROM tempo_chamados_porcent;";
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    listarDados
+    listarDados,
+    listarTempoOcorrencias
 }
