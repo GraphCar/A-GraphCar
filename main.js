@@ -16,7 +16,7 @@ var perfilRouter = require("./src/routes/Perfil");
 var carroRouter = require("./src/routes/Carro");
 var dadosRouter = require("./src/routes/Dados");
 var tabletRouter = require("./src/routes/Tablet");
-
+var servidorRouter = require("./src/routes/Servidor");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,6 +31,7 @@ app.use("/Perfil", perfilRouter);
 app.use("/Carro", carroRouter);
 app.use("/Dados", dadosRouter);
 app.use("/Tablet", tabletRouter);
+app.use("/Servidor", servidorRouter);
 
 
 const ipAddress = IP.address();
