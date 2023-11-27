@@ -158,7 +158,7 @@ function pesquisarId(req, res) {
 }
 
 function capturarDadosCarro(req, res) {
-    carro = sessionStorage.FK_CARRO
+    carro = req.params.fkCarro
     dadosModel.capturarDadosCarro(carro)
         .then(
             function (resultado) {
@@ -179,7 +179,7 @@ function capturarDadosCarro(req, res) {
 }
 
 function alertasCarro(req, res){
-    carro = sessionStorage.FK_CARRO
+    carro = req.params.fkCarro
     dadosModel.alertasCarro(carro)
         .then(
             function (resultado){
