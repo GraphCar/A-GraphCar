@@ -21,7 +21,7 @@ function listarDados(periodo, grupo) {
             ROUND(AVG(memoria), 2) AS memoria,
             ROUND(AVG(disco), 2) AS disco
             FROM DadosServidor 
-            WHERE dateDado > DATE_SUB(now(), INTERVAL 1 ${periodo}) GROUP BY fkServidor, dataFormatada ORDER BY minDateDado DESC;`;
+            WHERE dateDado > DATE_SUB(now(), INTERVAL 1 ${periodo}) GROUP BY fkServidor, dataFormatada ORDER BY minDateDado ASC;`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -52,7 +52,7 @@ function listarPeriodosChamados(fkServidor) {
         if (fkServidor != "-") {
             instrucao += ` WHERE fkServidor = ${fkServidor}`;
         }
-        instrucao += " ORDER BY dataAbertura DESC;"
+        instrucao += " ORDER BY dataAbertura ASC;"
 
         return database.executar(instrucao)
 };
