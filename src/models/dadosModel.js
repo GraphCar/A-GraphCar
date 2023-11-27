@@ -104,6 +104,15 @@ function alertasCarro(fkCarro){
     return database.executar(instrucao);
 }
 
+function exibirTabelaDeCarros(){
+    console.log("Criando a tabela com os alertas dos carros")
+    var instrucao = `
+            SELECT * FROM alertas_gerais_por_carro;   
+    `
+    console.log("Instrução: \n"+ instrucao)
+    return database.executar(instrucao)
+}
+
 module.exports={
     alertasGerais,
     alertasUltimoMes,
@@ -113,5 +122,6 @@ module.exports={
     listarNotificacoes,
     pesquisarId,
     capturarDadosCarro,
-    alertasCarro
+    alertasCarro,
+    exibirTabelaDeCarros
 }

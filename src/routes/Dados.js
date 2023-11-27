@@ -43,4 +43,8 @@ router.get("/alertasCarro/:fkCarro", function (req, res){
     dadosController.alertasCarro(req, res);  
 })
 
+router.get("/exibirTabelaDeCarros", function (req, res){
+    dadosController.exibirTabelaDeCarros(req, res);
+})
+
 module.exports = router;
