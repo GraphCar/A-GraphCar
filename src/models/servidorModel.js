@@ -31,7 +31,7 @@ function listarDados(periodo, grupo) {
             ROUND(AVG(memoria), 2) AS memoria,
             ROUND(AVG(disco), 2) AS disco
             FROM DadosServidor 
-            WHERE dateDado > ${process.env.AMBIENTE_PROCESSO == "producao" ? "DATEADD(" + periodo + ", 1, GETDATE())" : "DATE_SUB(now(), INTERVAL 1 " + periodo + ""} 
+            WHERE dateDado > ${process.env.AMBIENTE_PROCESSO == "producao" ? "DATEADD(" + periodo + ", -1, GETDATE())" : "DATE_SUB(now(), INTERVAL 1 " + periodo + ""} 
             GROUP BY fkServidor, ${formato} ORDER BY MIN(dateDado) ASC;`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
