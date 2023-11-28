@@ -14,6 +14,16 @@ function listarDados(periodo, grupo) {
         formato = "DATE_FORMAT(dateDado, '%H:%i')";
     } 
 
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        formato = formato.replace("DATE_", "");
+
+        formato = formato.replace("%m", "MM");
+        formato = formato.replace("%H", "hh");
+        formato = formato.replace("%i", "mm");
+        formato = formato.replace("%d", "dd");
+        formato = formato.replace("%Y", "yyyy");
+    }
+
     var instrucao = `SELECT fkServidor, ${formato} AS dataFormatada,
             MIN(dateDado) AS minDateDado,
             ROUND(AVG(cpuUso), 2) AS cpuUso,
@@ -21,7 +31,8 @@ function listarDados(periodo, grupo) {
             ROUND(AVG(memoria), 2) AS memoria,
             ROUND(AVG(disco), 2) AS disco
             FROM DadosServidor 
-            WHERE dateDado > DATE_SUB(now(), INTERVAL 1 ${periodo}) GROUP BY fkServidor, dataFormatada ORDER BY minDateDado ASC;`;
+            WHERE dateDado > ${process.env.AMBIENTE_PROCESSO == "producao" ? "DATEADD(" + periodo + ", 1, GETDATE())" : "DATE_SUB(now(), INTERVAL 1 " + periodo + ""} 
+            GROUP BY fkServidor, ${formato} ORDER BY MIN(dateDado) ASC;`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -47,8 +58,8 @@ function listarPeriodosChamados(fkServidor) {
         dataAbertura, 
         CASE WHEN encerrado = 1 
             THEN ultimaMensagemSlack
-            ELSE now() END AS dataFechamento
-        FROM Chamado`
+            ELSE ${process.env.AMBIENTE_PROCESSO == "producao" ? "GETDATE()" : "now()"} END AS dataFechamento
+        FROM Chamado`   
         if (fkServidor != "-") {
             instrucao += ` WHERE fkServidor = ${fkServidor}`;
         }
