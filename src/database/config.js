@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "local",
-    database: "SEU_BANCO_DE_DADOS",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
+    server: "localhost",
+    database: "GraphCar",
+    user: "sa",
+    password: "urubu100",
     pool: {
         max: 10,
         min: 0,
@@ -14,6 +14,7 @@ var sqlServerConfig = {
     },
     options: {
         encrypt: true, // for azure
+	    trustServerCertificate: true,
     }
 }
 

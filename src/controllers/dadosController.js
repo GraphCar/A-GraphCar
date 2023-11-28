@@ -185,7 +185,6 @@ function alertasCarro(req, res){
             function (resultado){
                 console.log(resultado);
                 res.json(resultado);
-                console.log('Fetch realizado com sucesso! Resposta: \n '+ resultado);
             }
         ).catch(
             function (erro){
