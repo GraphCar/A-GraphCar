@@ -12,8 +12,7 @@ function cadastrarMotorista(nome, email, senha, cpf, placa , modelo) {
         CALL cadastrar_motorista('${nome}','${email}', '${senha}','${cpf}', 'user.png', ${1}, '${placa}', ${modelo});
     `;
     }
-    
-    var 
+
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
