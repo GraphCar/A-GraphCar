@@ -3,7 +3,11 @@ var router = express.Router();
 
 var servidorController = require("../controllers/servidorController");
 
-router.get("/listarDados/:periodo-:grupo", function (req, res) {
+router.get("/listarServidores", function (req, res) {
+    servidorController.listarServidores(req, res);
+});
+
+router.get("/listarDados/:fkServidor-:periodo-:grupo", function (req, res) {
     servidorController.listarDados(req, res);
 });
 
