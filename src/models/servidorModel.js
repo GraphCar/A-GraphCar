@@ -22,7 +22,7 @@ function listarDados(fkServidor, periodo, grupo) {
         formato = formato.replace("DATE_", "");
 
         formato = formato.replace("%m", "MM");
-        formato = formato.replace("%H", "hh");
+        formato = formato.replace("%H", "HH");
         formato = formato.replace("%i", "mm");
         formato = formato.replace("%d", "dd");
         formato = formato.replace("%Y", "yyyy");
