@@ -1,11 +1,11 @@
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+process.env.AMBIENTE_PROCESSO = "producao";
 
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const IP = require('ip');
 const { spawn } = require("child_process");
-const PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 8080;
+const PORTA = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 80;
 
 var app = express();
 

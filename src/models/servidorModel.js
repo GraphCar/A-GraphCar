@@ -30,6 +30,7 @@ function listarDados(fkServidor, periodo, grupo) {
 
     var instrucao = `SELECT fkServidor, ${formato} AS dataFormatada,
             MIN(dateDado) AS minDateDado,
+            MAX(dateDado) AS maxDateDado,
             ROUND(AVG(cpuUso), 2) AS cpuUso,
             ROUND(AVG(cpuTemperatura), 2) AS cpuTemperatura,
             ROUND(AVG(memoria), 2) AS memoria,
