@@ -1,7 +1,11 @@
 var database = require("../database/config")
 
+function listarServidores() {
+    instrucao = "SELECT idServidor, hostname, mac FROM Servidor;"
+    return database.executar(instrucao);
+}
 
-function listarDados(periodo, grupo) {
+function listarDados(fkServidor, periodo, grupo) {
     // console.log("ACESSEI O Servidor MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDados():");
     var formato = "";
     if (grupo == "dia") {
@@ -31,8 +35,9 @@ function listarDados(periodo, grupo) {
             ROUND(AVG(memoria), 2) AS memoria,
             ROUND(AVG(disco), 2) AS disco
             FROM DadosServidor 
-            WHERE dateDado > ${process.env.AMBIENTE_PROCESSO == "producao" ? "DATEADD(" + periodo + ", -1, GETDATE())" : "DATE_SUB(now(), INTERVAL 1 " + periodo + ""} 
-            GROUP BY fkServidor, ${formato} ORDER BY MIN(dateDado) ASC;`;
+            WHERE fkServidor = ${fkServidor} AND
+            dateDado > ${process.env.AMBIENTE_PROCESSO == "producao" ? "DATEADD(" + periodo + ", -1, GETDATE())" : "DATE_SUB(now(), INTERVAL 1 " + periodo + ")"} 
+            GROUP BY fkServidor, ${process.env.AMBIENTE_PROCESSO == "producao" ? formato + " ORDER BY MIN(dateDado)" : "dataFormatada ORDER BY minDateDado"} ASC;`;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -58,7 +63,7 @@ function listarPeriodosChamados(fkServidor) {
         dataAbertura, 
         CASE WHEN encerrado = 1 
             THEN ultimaMensagemSlack
-            ELSE ${process.env.AMBIENTE_PROCESSO == "producao" ? "GETDATE()" : "now()"} END AS dataFechamento
+            ELSE ${process.env.AMBIENTE_PROCESSO == "producao" ? "GETDATE()" : "NOW()"} END AS dataFechamento
         FROM Chamado`   
         if (fkServidor != "-") {
             instrucao += ` WHERE fkServidor = ${fkServidor}`;
@@ -69,6 +74,7 @@ function listarPeriodosChamados(fkServidor) {
 };
 
 module.exports = {
+    listarServidores,
     listarDados,
     listarTempoOcorrencias,
     listarAlertas,

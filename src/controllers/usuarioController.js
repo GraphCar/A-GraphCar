@@ -74,7 +74,7 @@ function entrar(req, res) {
                                 } else if(usuario.nivelAcesso == 3){
                                     usuario["Redirecionamento"]="./D-GraphCar/template/index.html";
                                 } else {
-                                    usuario["Redirecionamento"]="perfil.html";
+                                    usuario["Redirecionamento"]="./D-GraphCar/template/pages/dash-motorista/tela_nova.html";
                                 }
 
                                 res.json(usuario);
